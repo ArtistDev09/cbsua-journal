@@ -1,0 +1,19 @@
+.read-more.btn-info {
+    background-color: #4caf50 !important;
+    border-color: #4caf50 !important;
+    border-radius: 10px;
+}
+
+.media-heading a {
+    color: #1b801e !important;
+    text-decoration: none !important;
+}
+
+.media-heading a:hover {
+    color: #124214 !important; /* optional darker green */
+    text-decoration: none !important; /* remove underline */
+}
+
+
+
+

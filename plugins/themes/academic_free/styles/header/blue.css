@@ -1,0 +1,137 @@
+/* --- Journal index header background fix --- */
+.journal_index {
+    background: url('header_blue.jpg') top right no-repeat !important;
+    background-size: cover !important;
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    min-height: 220px !important;
+}
+
+/* --- Ensure background displays on mobile --- */
+@media (max-width: 768px) {
+  .journal_index {
+      background: url('header_blue.jpg') center center no-repeat !important;
+      background-size: cover !important;
+      background-attachment: scroll !important;
+      background-color: transparent !important;
+      min-height: 180px !important;
+  }
+}
+
+
+
+.site_header { 
+   background: white;
+   border: 1px solid #e1e1e1
+}
+
+
+
+#main-navigation > li a { color: black;}
+
+.panel-default > .panel-heading, .pkp_block .title {   
+  
+    color: #ffffff;    
+    background: rgba(179,220,237,1);
+    background: -moz-linear-gradient(top, rgba(179,220,237,1) 0%, rgb(37, 187, 62) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(100%, rgba(41,184,229,1)));
+    background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 100%);
+    background: -o-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 100%);
+    background: -ms-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 100%);
+    background: linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#29b8e5', GradientType=0 );
+
+
+}
+
+.user_navigation { 
+    background: #0a612d; /* Old browsers */
+    background: -moz-linear-gradient(left, #0a612d 0%, #0a612d 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #0a612d 0%,#0a612d 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #0a612d 0%,#0a612d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#295293', endColorstr='#3fa1e2',GradientType=1 ); /* IE6-9 */
+  }
+
+  
+.user_navigation a {
+    color: rgb(255, 255, 255) !important ;
+}
+
+.user_navigation .dropdown-menu li a { 
+    color: rgb(87, 87, 87) !important;
+}
+
+.about_journal { 
+    padding: 20px;
+    font-size: 1.03em;
+    color: white;
+    background : #38bffda4;
+    border: 0.5px solid #f0f0f0
+}
+
+.about_journal h1 { color: #ff8040}
+
+.editorial_team_block .profile .name {color: #1d8d3b } 
+
+/* --- Responsive Journal Title + Subtitle --- */
+.journal_title {
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+  font-size: clamp(1.6rem, 5vw, 2.8rem); /* Responsive scaling */
+  line-height: 1.2;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.journal_title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.journal_subtitle {
+  color: #e3e3e3;
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  max-width: 700px;
+  margin: 0 auto 15px auto;
+  line-height: 1.5;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- Responsive Layout Tweaks for Mobile --- */
+@media (max-width: 768px) {
+  .journal_title {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+
+  .journal_subtitle {
+    font-size: clamp(0.9rem, 3.5vw, 1.05rem);
+    line-height: 1.4;
+    padding: 0 1rem;
+  }
+
+  /* Move title a bit lower for smaller headers */
+  .rdd-header > div {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+/* --- Extra small screens (phones < 480px) --- */
+@media (max-width: 480px) {
+  .journal_title {
+    font-size: clamp(1rem, 7vw, 1.6rem);
+    margin-bottom: 6px;
+  }
+
+  .journal_subtitle {
+    font-size: clamp(0.85rem, 3.8vw, 0.95rem);
+    max-width: 90%;
+  }
+}
+
