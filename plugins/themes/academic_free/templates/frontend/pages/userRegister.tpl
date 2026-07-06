@@ -7,11 +7,9 @@
 *
 * User registration form.
 *}
-{include file="frontend/components/header.tpl" pageTitle="user.register"}
+{include file="frontend/components/header.tpl" pageTitle="user.register" isFullWidth=true}
 
 <div id="main-content" class="page page_register">
-
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
 	<form class="pkp_form register" id="register" method="post" action="{url op="register"}">
 		{csrf}

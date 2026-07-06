@@ -16,24 +16,32 @@
  * @uses $pubIdPlugins @todo
  *}
 
- {assign var=smarty_version value=$smarty.version|substr:0:1}
+{assign var=smarty_version value=$smarty.version|substr:0:1}
+{if $publication}
+	{assign var=articleKeywords value=$publication->getLocalizedData('keywords')}
+{elseif $keywords}
+	{assign var=articleKeywords value=$keywords}
+{/if}
  
-<article class="article-details">
-	<header>
-		<h1 class="page-header">
+<article class="article-details article-details--enhanced">
+	<header class="">
+		{if $section}
+			<div class="article-section-label">
+				<i class="fa fa-folder-open-o" aria-hidden="true"></i>
+				<span>{translate key="section.section"} {$section->getLocalizedTitle()|escape}</span>
+			</div>
+		{/if}
+		<h1 class="page-header article-title">
 			{$article->getLocalizedTitle()|escape}
-			{if $article->getLocalizedSubtitle()}
-				<small>
-					{$article->getLocalizedSubtitle()|escape}
-						{if $section} <span class="pull-right">{translate key="section.section"}	{$section->getLocalizedTitle()|escape}</span> {/if}
-				</small>
-			{/if}
-
-		
 		</h1>
+		{if $article->getLocalizedSubtitle()}
+			<p class="article-subtitle">
+				{$article->getLocalizedSubtitle()|escape}
+			</p>
+		{/if}
 	</header>
 
-	<div class="row">
+	<div class="row article-details-grid">
 
 
 		<section class="article-sidebar col-md-4">
@@ -60,13 +68,24 @@
 
 		
 
-			<div class="list-group">
+			<div class="list-group article-meta-card">
+				<div class="list-group-item article-meta-heading">
+					<i class="fa fa-info-circle" aria-hidden="true"></i>
+					<span>Article Details</span>
+				</div>
 
 				{* Published date *}
 				{if $article->getDatePublished()}
-					<div class="list-group-item date-published">
-						<strong>{translate key="submissions.published"}</strong>
-						{$article->getDatePublished()|date_format}
+					<div class="list-group-item date-published article-meta-item">
+						<span class="article-meta-label">{translate key="submissions.published"}</span>
+						<span class="article-meta-value">{$article->getDatePublished()|escape}</span>
+					</div>
+				{/if}
+
+				{if $article->getPages()}
+					<div class="list-group-item article-meta-item">
+						<span class="article-meta-label">Pages</span>
+						<span class="article-meta-value">{$article->getPages()|escape}</span>
 					</div>
 				{/if}
 
@@ -81,96 +100,90 @@
 			</div>
 
 			
-				{* Galleys *}
-				<div class="panel panel-default galley_list">
-						<div class="panel-heading">
-							<i class="fa fa-download"> </i> Download
-						</div>
-						<div class="panel-body">
-								{* Article Galleys *}
-								{if $primaryGalleys || $supplementaryGalleys}
-									<div class="download">
-										{if $primaryGalleys}
-											{foreach from=$primaryGalleys item=galley}
-												{include file="frontend/objects/galley_link.tpl" parent=$article purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-											{/foreach}
-										{/if}
-										{if $supplementaryGalleys}
-											{foreach from=$supplementaryGalleys item=galley}
-												{include file="frontend/objects/galley_link.tpl" parent=$article isSupplementary="1"}
-											{/foreach}
-										{/if}
-									</div>
-								{/if}
-						</div>
-				</div>
-
-				{* Stat *}
-				{if $enableStatistic != 'no'}
-				<div class="panel panel-default galley_list">
-						<div class="panel-heading">
-							<i class="fa fa-bar-chart"> </i> Statistic
-						</div>
-						<div class="panel-body">					
-							{call_hook name="Templates::Article::Main"}
-						</div>
-				</div>
-				{/if}
-
-			
 		
 
 		</section><!-- .article-sidebar -->
 
 		<div class="col-md-8">
 			<section class="article-main">
-				
-				{* Issue *}
-				<div class="issue_detail">			
-				<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-				{$issue->getIssueIdentification()}
-				</a>
-				</div>
-
-
 				{* Screen-reader heading for easier navigation jumps *}
 				<h2 class="sr-only">{translate key="plugins.themes.academic_pro.article.main"}</h2>
 
-				{if $article->getAuthors()}
-					<div class="authors">
-						{foreach from=$article->getAuthors() item=author}
-							<div class="author">
-							<i class="fa fa-user"> </i>
-								<strong>{$author->getFullName()|escape}</strong>
-								{if $author->getLocalizedAffiliation()}
-									<div class="article-author-affilitation">
-										{$author->getLocalizedAffiliation()|escape}
-									</div>
-								{/if}
-								{if $author->getOrcid()}
-									<div class="orcid">									
-										<a href="{$author->getOrcid()|escape}" target="_blank">
-											{$author->getOrcid()|escape}
-										</a>
-									</div>
-								{/if}
+				{if $issue || $article->getAuthors() || $article->getLocalizedAbstract()}
+					<div class="article-core-details article-detail-block">
+						{* Issue *}
+						{if $issue}
+							<div class="issue_detail article-detail-section">
+								<div class="article-block-label">
+									<i class="fa fa-book" aria-hidden="true"></i>
+									<span>Issue</span>
+								</div>
+								<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+									{$issue->getIssueIdentification()}
+								</a>
 							</div>
-						{/foreach}
-					</div>
-				{/if}
+						{/if}
 
-				{* Article abstract *}
-				{if $article->getLocalizedAbstract()}
-					<div class="article-summary" id="summary">
-						<h2>{translate key="article.abstract"}</h2>
-						<div class="article-abstract">
-							{$article->getLocalizedAbstract()|strip_unsafe_html|nl2br}
-						</div>
+						{if $article->getAuthors()}
+							<div class="authors article-detail-section">
+								<div class="article-block-label">
+									<i class="fa fa-users" aria-hidden="true"></i>
+									<span>Authors</span>
+								</div>
+								{foreach from=$article->getAuthors() item=author}
+									<div class="author article-author-card">
+										<div class="article-author-avatar" aria-hidden="true">
+										
+										</div>
+										<div class="article-author-content">
+										<strong class="article-author-name">{$author->getFullName()|escape}</strong>
+										{if $author->getLocalizedAffiliation()}
+											<div class="article-author-affilitation">
+												{$author->getLocalizedAffiliation()|escape}
+											</div>
+										{/if}
+										{if $author->getOrcid()}
+											<div class="orcid">
+												<a href="{$author->getOrcid()|escape}" target="_blank">
+													{$author->getOrcid()|escape}
+												</a>
+											</div>
+										{/if}
+										</div>
+									</div>
+								{/foreach}
+							</div>
+						{/if}
+<br>
+						{* Article abstract *}
+						{if $article->getLocalizedAbstract()}
+							<div class="article-summary article-detail-section" id="summary">
+								<div class="article-block-label">
+	
+									<span>{translate key="article.abstract"}</span>
+								</div>
+								<div class="article-abstract">
+									{$article->getLocalizedAbstract()|strip_unsafe_html|nl2br}
+								</div>
+							</div>
+						{/if}
 					</div>
 				{/if}
 
 				{* Keywords *}
-				{* @todo keywords not yet implemented *}
+				{if !empty($articleKeywords)}
+					<div class="article-keywords article-detail-block">
+						<div class="article-block-label">
+							<i class="fa fa-tags" aria-hidden="true"></i>
+							<span>Keywords</span>
+						</div>
+						<div class="article-keyword-list">
+							{foreach from=$articleKeywords item=keyword}
+								<span class="article-keyword">{$keyword|escape}</span>
+							{/foreach}
+						</div>
+					</div>
+				{/if}
 
 				
 

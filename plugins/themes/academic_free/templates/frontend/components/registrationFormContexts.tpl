@@ -22,28 +22,28 @@
 {if !$currentContext}
 
 	{* Allow users to register for any journal/press on this site *}
-	<fieldset name="contexts">
+	<fieldset name="contexts" class="registration-contexts">
 		<legend>
 			{translate key="user.register.contextsPrompt"}
 		</legend>
 		<div class="fields">
 			<div id="contextOptinGroup" class="context_optin">
-				<ul class="list-group contexts">
+				<ul class="list-group contexts registration-contexts__list">
 					{foreach from=$contexts item=context}
 						{assign var=contextId value=$context->getId()}
-						<li class="list-group-item context">
-							<h4 class="list-group-item-heading">
+						<li class="list-group-item context registration-contexts__item">
+							<h4 class="list-group-item-heading registration-contexts__title">
 								{$context->getLocalizedName()}
 							</h4>
-							<p>
+							<p class="registration-contexts__prompt">
 								{translate key="user.register.otherContextRoles"}
 							</p>
 							<div class="form-inline">
-								<div class="form-group context_roles">
+								<div class="form-group context_roles registration-contexts__roles">
 									{foreach from=$readerUserGroups[$contextId] item=userGroup}
 										{if $userGroup->getPermitSelfRegistration()}
 											{assign var="userGroupId" value=$userGroup->getId()}
-											<label class="input-group">
+											<label class="input-group registration-contexts__role">
 												<span class="input-group-addon">
 													<input type="checkbox" name="readerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>
@@ -56,7 +56,7 @@
 									{foreach from=$authorUserGroups[$contextId] item=userGroup}
 										{if $userGroup->getPermitSelfRegistration()}
 											{assign var="userGroupId" value=$userGroup->getId()}
-											<label class="input-group">
+											<label class="input-group registration-contexts__role">
 												<span class="input-group-addon">
 													<input type="checkbox" name="authorGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>
@@ -69,7 +69,7 @@
 									{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 										{if $userGroup->getPermitSelfRegistration()}
 											{assign var="userGroupId" value=$userGroup->getId()}
-											<label class="input-group">
+											<label class="input-group registration-contexts__role">
 												<span class="input-group-addon">
 													<input type="checkbox" name="reviewerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>

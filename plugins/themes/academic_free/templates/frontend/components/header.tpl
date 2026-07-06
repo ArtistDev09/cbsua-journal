@@ -19,6 +19,14 @@
 	{assign var="showingLogo" value=false}
 {/if}
 
+{capture assign="homeUrl"}
+	{if $currentContext && $multipleContexts}
+		{url page="index" router=$smarty.const.ROUTE_PAGE}
+	{else}
+		{url context="index" router=$smarty.const.ROUTE_PAGE}
+	{/if}
+{/capture}
+
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 {if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
@@ -76,15 +84,6 @@
    Otherwise that should go to the page title. *}
 
 <div class="site-header" style="display: flex; align-items: center; flex-wrap: wrap;">
-
-    {capture assign="homeUrl"}
-        {if $currentJournal && $multipleContexts}
-            {url page="index" router=$smarty.const.ROUTE_PAGE}
-        {else}
-            {url context="index" router=$smarty.const.ROUTE_PAGE}
-        {/if}
-    {/capture}
-
    
 
     {* --- Site Title --- *}
@@ -97,7 +96,7 @@
     {if $displayPageHeaderTitle && is_string($displayPageHeaderTitle)}
     <!--
         <a href="{$homeUrl}" class="navbar-brand journal_full_title">
-            Central Bicol State University of Agriculture Journals
+            Central Bicol State University of Agriculture
         </a>
         -->
     {/if}
@@ -133,9 +132,10 @@
 					</nav>
 				{/if}
 
-			</div><!-- .pkp_head_wrapper -->
+			</div><!-- .navbar-header -->
 
-			</div>
+			</div><!-- .container -->
+			</div><!-- .site_header -->
 		
 
 		</header><!-- .pkp_structure_head -->
@@ -152,13 +152,13 @@
         text-align: center;
         margin: 30px auto;
         max-width: 900px;
-        height: 200px;
+        height: 250px;
         padding: 20px;
 
      ">
 
     <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h1 class="journal_title" style="color: white; font-size: 30px">
+    <h1 class="journal_title" style="color: white; font-size: 60px">
         {if $displayPageHeaderTitle && is_string($displayPageHeaderTitle)}
             <a href="{$homeUrl}" style="text-decoration: none; color: inherit;">
                 {$displayPageHeaderTitle}
@@ -194,8 +194,6 @@
                 P-ISSN: 2782-8816   <br>   E-ISSN: 2799-1733
             </div>
      	</div>	
-
-</div>
 
 {* --- /CBSUA R&D Header Section --- *}
 

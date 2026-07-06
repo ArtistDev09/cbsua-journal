@@ -24,6 +24,7 @@
  *}
 
 	        </main>
+		
 
         {if empty($isFullWidth)}
             {capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
@@ -38,28 +39,25 @@
 
 	
 
-	<footer class="footer" role="contentinfo">
-		
+	<footer class="footer site-footer" role="contentinfo">
 		<div class="container">
-				
-				<div class="col-md-4">
-					{* Show site Logo *}
+			<div class="site-footer__inner">
+				<div class="site-footer__brand">
+					{* Show site Logo 
 					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-					<img style='width:100%; border="0"' src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>
+						<img class="site-footer__logo site-footer__logo--custom" src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>
 					{else}
-						<img  style='width: 100px; border="1px solid #e5e5e5"; border-radius: 4px;' alt="site_logo" src="{$pluginImageDir}top_logo.jpg" /> <br>
-					{/if}
+						<img class="site-footer__logo" alt="site_logo" src="{$pluginImageDir}top_logo.jpg" />
+					{/if} *}
+					<div class="site-footer__title">© VPRI CBSUA 2026.<br /> All rights reserved.</div>
 				</div>
-				
+
 				{if $pageFooter}
-					{$pageFooter}	
+					<div class="site-footer__content">
+						{$pageFooter}
+					</div>
 				{/if}
-			
-				
-			
-				
-			
-			 <!-- .row -->
+			</div>
 		</div><!-- .container -->
 	</footer>
 </div><!-- pkp_structure_page -->

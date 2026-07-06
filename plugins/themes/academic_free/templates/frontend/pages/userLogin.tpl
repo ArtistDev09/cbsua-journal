@@ -8,20 +8,21 @@
  * User login form.
  *
  *}
-{include file="frontend/components/header.tpl" pageTitle="user.login"}
+{include file="frontend/components/header.tpl" pageTitle="user.login" isFullWidth=true}
 
 <style>
 /* Full page wrapper */
-html, body {
-    height: 100%;
+html,
+body {
+    min-height: 100%;
     margin: 0;
-    background: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #f4f8f6;
 }
 
 /* Hide OJS headers */
+#headerNavigationContainer,
+.journal_index,
+footer[role="contentinfo"],
 header.pkp_header,
 .pkp_site_name,
 .pkp_navigation_primary_wrapper,
@@ -29,9 +30,41 @@ header.pkp_header,
 .pkp_navbar,
 .pkp_navigation_primary,
 .pkp_structure_head,
-.pkp_structure_page,
 .pkp_site_nav_menu {
     display: none !important;
+}
+
+.pkp_page_login .pkp_structure_page {
+    min-height: 100vh;
+    background: #f4f8f6;
+}
+
+.pkp_page_login .pkp_structure_content {
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    padding: 24px 16px;
+}
+
+.pkp_page_login .pkp_structure_content > .row {
+    min-height: calc(100vh - 48px);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.pkp_page_login .pkp_structure_main {
+    float: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: calc(100vh - 48px);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 /* Container & row centering */
@@ -192,6 +225,10 @@ header.pkp_header,
     padding: 0 !important;
     margin: 0 !important;
 }
+
+.site-footer {
+    display: none !important;
+}
 </style>
 
 
@@ -286,7 +323,7 @@ header.pkp_header,
     </div>
 </form>
 
-
+{include file="frontend/components/footer.tpl" isFullWidth=true}
 
 
 

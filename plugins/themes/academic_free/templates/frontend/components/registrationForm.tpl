@@ -20,9 +20,15 @@
 {assign var=smarty_version value=$smarty.version|substr:0:1}
 
 {* make compatible with ojs 3.1.2 *}
+<div class="divider"></div>
+<h1 class="registration-form-sections__title">Registration Form</h1>
+<div class="divider"></div>
+<div class="registration-form-sections">
+
 	{if $smarty_version == '2'} 
 		{include file="legacy/registrationForm_3.1.1.tpl"}
 	{else}
 		{include file="legacy/registrationForm_3.1.2.tpl"}
 	{/if}
+</div>
 {* end compatible check *}
