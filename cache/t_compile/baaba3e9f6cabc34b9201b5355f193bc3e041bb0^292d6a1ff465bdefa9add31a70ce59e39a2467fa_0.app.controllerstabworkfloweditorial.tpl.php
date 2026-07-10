@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:37:46
+/* Smarty version 4.3.1, created on 2026-07-07 05:56:44
   from 'app:controllerstabworkfloweditorial.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70ea151452_67477281',
+  'unifunc' => 'content_6a4c78fc6f2bf1_34497487',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '292d6a1ff465bdefa9add31a70ce59e39a2467fa' => 
     array (
       0 => 'app:controllerstabworkfloweditorial.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:controllers/tab/workflow/stageParticipants.tpl' => 1,
   ),
 ),false)) {
-function content_691e70ea151452_67477281 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c78fc6f2bf1_34497487 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="editorial">
 
 	<?php $_smarty_tpl->_subTemplateRender("app:controllers/notification/inPlaceNotification.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('notificationId'=>call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'concat' ][ 0 ], array( "editingNotification_",$_smarty_tpl->tpl_vars['submission']->value->getId() )),'requestOptions'=>$_smarty_tpl->tpl_vars['editingNotificationRequestOptions']->value,'refreshOn'=>"stageStatusUpdated"), 0, false);

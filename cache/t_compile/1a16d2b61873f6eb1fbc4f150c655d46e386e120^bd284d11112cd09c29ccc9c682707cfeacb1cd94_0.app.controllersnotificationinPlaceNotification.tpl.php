@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-03-19 02:01:52
+/* Smarty version 4.3.1, created on 2026-07-07 06:00:17
   from 'app:controllersnotificationinPlaceNotification.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69bae8905eea12_12997007',
+  'unifunc' => 'content_6a4c79d1528c97_54271476',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bd284d11112cd09c29ccc9c682707cfeacb1cd94' => 
     array (
       0 => 'app:controllersnotificationinPlaceNotification.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:controllers/notification/notificationOptions.tpl' => 1,
   ),
 ),false)) {
-function content_69bae8905eea12_12997007 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c79d1528c97_54271476 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
 	$(function() {

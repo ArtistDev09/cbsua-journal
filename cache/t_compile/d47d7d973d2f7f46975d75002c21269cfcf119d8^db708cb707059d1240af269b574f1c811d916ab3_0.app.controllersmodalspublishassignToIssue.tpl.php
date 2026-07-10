@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:38:03
+/* Smarty version 4.3.1, created on 2026-07-07 06:00:50
   from 'app:controllersmodalspublishassignToIssue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70fb81df22_03684908',
+  'unifunc' => 'content_6a4c79f2169e99_03192629',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db708cb707059d1240af269b574f1c811d916ab3' => 
     array (
       0 => 'app:controllersmodalspublishassignToIssue.tpl',
-      1 => 1732939448,
+      1 => 1783307640,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e70fb81df22_03684908 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c79f2169e99_03192629 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php $_smarty_tpl->_assignInScope('uuid', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'uniqid' ][ 0 ], array( '' )) )));?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:36:43
+/* Smarty version 4.3.1, created on 2026-07-07 05:43:59
   from 'app:submissionsubmissionMetadataFormTitleFields.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70abeb1b52_05934917',
+  'unifunc' => 'content_6a4c75ff478850_09210778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e0638d63205727cdd3162ef4f8c2bd1c2699be17' => 
     array (
       0 => 'app:submissionsubmissionMetadataFormTitleFields.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e70abeb1b52_05934917 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c75ff478850_09210778 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['formParams']->value['submissionVersion'] && ($_smarty_tpl->tpl_vars['formParams']->value['submissionVersion'] < $_smarty_tpl->tpl_vars['currentSubmissionVersion']->value)) {?>
   <?php $_smarty_tpl->_assignInScope('readOnly', 1);
 } else { ?>

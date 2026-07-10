@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-06-23 11:28:38
+/* Smarty version 4.3.1, created on 2026-07-09 15:38:30
   from 'app:authorDashboardsubmissionEmails.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a39fd665f9805_42372207',
+  'unifunc' => 'content_6a4fa456affcf7_23250881',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4c69191d59ef45106096c1dcfda972fb7f14561c' => 
     array (
       0 => 'app:authorDashboardsubmissionEmails.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a39fd665f9805_42372207 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/journal-admin/public_html/lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
+function content_6a4fa456affcf7_23250881 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 
 <?php if ($_smarty_tpl->tpl_vars['submissionEmails']->value && $_smarty_tpl->tpl_vars['submissionEmails']->value->getCount()) {?>

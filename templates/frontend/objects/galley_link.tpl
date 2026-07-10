@@ -57,8 +57,13 @@
 	{/if}
 {/if}
 
-{* Don't be frightened. This is just a link *}
-<a class="{if $isSupplementary}obj_galley_link_supplementary{else}obj_galley_link{/if} {$type|escape}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$path}"{if $labelledBy} aria-labelledby={$labelledBy}{/if}>
+{* Open PDF galleys inline in the browser and keep other files as downloads. *}
+{assign var="galleyOp" value="download"}
+{assign var="linkTarget" value=""}
+{if $type == 'pdf'}
+	{assign var="linkTarget" value="_blank"}
+{/if}
+<a class="{if $isSupplementary}obj_galley_link_supplementary{else}obj_galley_link{/if} {$type|escape}{if $restricted} restricted{/if}" href="{url page=$page op=$galleyOp path=$path inline=true}"{if $labelledBy} aria-labelledby={$labelledBy}{/if}{if $linkTarget} target="{$linkTarget}" rel="noopener"{/if}>
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}

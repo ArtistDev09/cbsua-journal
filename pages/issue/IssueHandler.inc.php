@@ -336,6 +336,15 @@ class IssueHandler extends Handler {
 			if (!$sectionId = $submission->getCurrentPublication()->getData('sectionId')) {
 				continue;
 			}
+
+			$publication = $submission->getCurrentPublication();
+			$galleys = [];
+			if ($publication) {
+				$galleys = Application::get()->getRepresentationDAO()->getByPublicationId($publication->getId(), $submission->getData('contextId'))->toArray();
+				$publication->setData('galleys', $galleys);
+			}
+			$submission->setData('galleys', $galleys);
+
 			$issueSubmissionsInSection[$sectionId]['articles'][] = $submission;
 		}
 

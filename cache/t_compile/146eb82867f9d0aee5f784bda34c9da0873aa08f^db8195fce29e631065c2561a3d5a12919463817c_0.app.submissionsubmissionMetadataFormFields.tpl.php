@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:36:43
+/* Smarty version 4.3.1, created on 2026-07-07 05:43:59
   from 'app:submissionsubmissionMetadataFormFields.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70abec10e1_21991390',
+  'unifunc' => 'content_6a4c75ffe8c4e6_09718535',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db8195fce29e631065c2561a3d5a12919463817c' => 
     array (
       0 => 'app:submissionsubmissionMetadataFormFields.tpl',
-      1 => 1732939448,
+      1 => 1783307640,
       2 => 'app',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'core:submission/submissionMetadataFormFields.tpl' => 1,
   ),
 ),false)) {
-function content_691e70abec10e1_21991390 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c75ffe8c4e6_09718535 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'default', "languagesField", null);?>
 	<?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'default', "sectionDescription", null);
 if (!$_smarty_tpl->tpl_vars['readOnly']->value) {?>submission.submit.metadataForm.tip<?php }

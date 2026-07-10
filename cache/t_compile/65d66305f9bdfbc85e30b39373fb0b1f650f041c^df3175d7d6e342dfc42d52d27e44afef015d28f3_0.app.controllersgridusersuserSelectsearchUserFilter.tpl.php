@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:37:56
+/* Smarty version 4.3.1, created on 2026-07-09 15:57:33
   from 'app:controllersgridusersuserSelectsearchUserFilter.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70f430a807_35056677',
+  'unifunc' => 'content_6a4fa8cd7eecb3_71556162',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df3175d7d6e342dfc42d52d27e44afef015d28f3' => 
     array (
       0 => 'app:controllersgridusersuserSelectsearchUserFilter.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e70f430a807_35056677 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4fa8cd7eecb3_71556162 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_assignInScope('formId', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'concat' ][ 0 ], array( "searchUserFilter-",$_smarty_tpl->tpl_vars['filterData']->value['gridId'] )));
 echo '<script'; ?>
  type="text/javascript">

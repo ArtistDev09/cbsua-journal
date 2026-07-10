@@ -1317,7 +1317,7 @@ msgid "navigation.admin"
 msgstr "Administration"
 
 msgid "navigation.archives"
-msgstr "Archives"
+msgstr "Past Issues"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "You are here:"

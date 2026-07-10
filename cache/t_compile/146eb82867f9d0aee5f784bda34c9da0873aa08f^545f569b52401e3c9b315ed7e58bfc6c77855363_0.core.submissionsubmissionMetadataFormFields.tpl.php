@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:36:43
+/* Smarty version 4.3.1, created on 2026-07-07 05:44:00
   from 'core:submissionsubmissionMetadataFormFields.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70abef0821_68974754',
+  'unifunc' => 'content_6a4c76003efe04_24889972',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '545f569b52401e3c9b315ed7e58bfc6c77855363' => 
     array (
       0 => 'core:submissionsubmissionMetadataFormFields.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'core',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e70abef0821_68974754 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c76003efe04_24889972 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['citationsEnabled']->value && array_intersect(array(ROLE_ID_MANAGER,ROLE_ID_SUB_EDITOR,ROLE_ID_ASSISTANT,ROLE_ID_REVIEWER,ROLE_ID_AUTHOR),(array)$_smarty_tpl->tpl_vars['userRoles']->value)) {?>
 	<?php $_smarty_tpl->_assignInScope('citationsEnabled', true);
 } else { ?>

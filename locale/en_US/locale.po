@@ -56,7 +56,7 @@ msgid "navigation.journalHelp"
 msgstr "Journal Help"
 
 msgid "navigation.current"
-msgstr "Current"
+msgstr "Current Issue"
 
 msgid "navigation.otherJournals"
 msgstr "Other Journals"
@@ -1341,7 +1341,7 @@ msgid "user.register.noJournals"
 msgstr "There are no journals you may register with on this site."
 
 msgid "user.register.privacyStatement"
-msgstr "Privacy Statement"
+msgstr "Editorial Policy"
 
 msgid "user.register.registrationDisabled"
 msgstr "This journal is currently not accepting user registrations."
@@ -1617,7 +1617,7 @@ msgid "about.contact"
 msgstr "Contact"
 
 msgid "about.aboutContext"
-msgstr "About the Journal"
+msgstr "Copyright and License"
 
 msgid "about.history"
 msgstr "Journal History"
@@ -1638,7 +1638,7 @@ msgid "about.sectionPolicies"
 msgstr "Section Policies"
 
 msgid "about.submissions"
-msgstr "Submissions"
+msgstr "Author Guidelines"
 
 msgid "about.onlineSubmissions.login"
 msgstr "Login"

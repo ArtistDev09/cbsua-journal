@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-01 03:55:00
+/* Smarty version 4.3.1, created on 2026-07-09 15:40:41
   from 'app:frontendcomponentsfooter.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69058494ecd8e7_36170182',
+  'unifunc' => 'content_6a4fa4d9d7e6d6_69432957',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4dffb64063bb972c37e05619a2ccd9d0ea7473ac' => 
     array (
       0 => 'app:frontendcomponentsfooter.tpl',
-      1 => 1761273710,
+      1 => 1783093844,
       2 => 'app',
     ),
   ),
@@ -20,9 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_69058494ecd8e7_36170182 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4fa4d9d7e6d6_69432957 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 	        </main>
+		
 
         <?php if (empty($_smarty_tpl->tpl_vars['isFullWidth']->value)) {?>
             <?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'default', "sidebarCode", null);
@@ -41,33 +42,20 @@ $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
 
 	
 
-	<footer class="footer" role="contentinfo">
-		
+	<footer class="footer site-footer" role="contentinfo">
 		<div class="container">
-				
-				<div class="col-md-4">
-										<?php if ($_smarty_tpl->tpl_vars['displayPageHeaderLogo']->value && is_array($_smarty_tpl->tpl_vars['displayPageHeaderLogo']->value)) {?>
-					<img style='width:100%; border="0"' src="<?php echo $_smarty_tpl->tpl_vars['publicFilesDir']->value;?>
-/<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['displayPageHeaderLogo']->value['uploadName'],"url" ));?>
-" <?php if ($_smarty_tpl->tpl_vars['displayPageHeaderLogo']->value['altText'] != '') {?>alt="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['displayPageHeaderLogo']->value['altText'] ));?>
-"<?php } else { ?>alt="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"common.pageHeaderLogo.altText"),$_smarty_tpl ) );?>
-"<?php }?>>
-					<?php } else { ?>
-						<img  style='width: 100px; border="1px solid #e5e5e5"; border-radius: 4px;' alt="site_logo" src="<?php echo $_smarty_tpl->tpl_vars['pluginImageDir']->value;?>
-top_logo.jpg" /> <br>
-					<?php }?>
+			<div class="site-footer__inner">
+				<div class="site-footer__brand">
+										<div class="site-footer__title">© VPRI CBSUA 2026.<br /> All rights reserved.</div>
 				</div>
-				
+
 				<?php if ($_smarty_tpl->tpl_vars['pageFooter']->value) {?>
-					<?php echo $_smarty_tpl->tpl_vars['pageFooter']->value;?>
-	
+					<div class="site-footer__content">
+						<?php echo $_smarty_tpl->tpl_vars['pageFooter']->value;?>
+
+					</div>
 				<?php }?>
-			
-				
-			
-				
-			
-			 <!-- .row -->
+			</div>
 		</div><!-- .container -->
 	</footer>
 </div><!-- pkp_structure_page -->

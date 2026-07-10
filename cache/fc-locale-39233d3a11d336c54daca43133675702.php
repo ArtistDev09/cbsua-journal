@@ -425,7 +425,7 @@
   'navigation.access' => 'Users & Roles',
   'navigation.about' => 'About',
   'navigation.admin' => 'Administration',
-  'navigation.archives' => 'Archives',
+  'navigation.archives' => 'Past Issues',
   'navigation.breadcrumbLabel' => 'You are here:',
   'navigation.breadcrumbSeparator' => '/',
   'navigation.tools' => 'Tools',

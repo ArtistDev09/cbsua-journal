@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:37:34
+/* Smarty version 4.3.1, created on 2026-07-07 05:56:22
   from 'app:workfloweditorialLinkActions.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70dea23637_10611734',
+  'unifunc' => 'content_6a4c78e6e4ab26_29225301',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '89c79fa2703e2177d8dc994cf33a598ba1897432' => 
     array (
       0 => 'app:workfloweditorialLinkActions.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -21,8 +21,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:linkAction/linkAction.tpl' => 2,
   ),
 ),false)) {
-function content_691e70dea23637_10611734 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/journal-admin/public_html/lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.count.php','function'=>'smarty_modifier_count',),));
+function content_6a4c78e6e4ab26_29225301 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),));
 ?>
 
 <?php if (!empty($_smarty_tpl->tpl_vars['editorActions']->value)) {?>

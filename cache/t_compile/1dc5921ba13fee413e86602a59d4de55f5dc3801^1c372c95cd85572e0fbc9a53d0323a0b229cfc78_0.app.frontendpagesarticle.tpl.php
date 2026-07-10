@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 10:35:37
+/* Smarty version 4.3.1, created on 2026-07-07 05:21:42
   from 'app:frontendpagesarticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690490f945aa07_29513623',
+  'unifunc' => 'content_6a4c70c62b63a2_08306120',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c372c95cd85572e0fbc9a53d0323a0b229cfc78' => 
     array (
       0 => 'app:frontendpagesarticle.tpl',
-      1 => 1760931566,
+      1 => 1783089397,
       2 => 'app',
     ),
   ),
@@ -24,8 +24,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_690490f945aa07_29513623 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('isFullWidth'=>true,'pageTitleTranslated'=>call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['article']->value->getLocalizedTitle() ))), 0, false);
+function content_6a4c70c62b63a2_08306120 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_assignInScope('articleTitle', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['article']->value->getLocalizedTitle() )));
+$_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('isFullWidth'=>true,'pageTitleTranslated'=>$_smarty_tpl->tpl_vars['articleTitle']->value), 0, false);
 ?>
 
 <div class="page page_article">

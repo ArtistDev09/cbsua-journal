@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 10:34:08
+/* Smarty version 4.3.1, created on 2026-07-10 15:36:38
   from 'app:frontendpagesindexJournal.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690490a0537be2_53923741',
+  'unifunc' => 'content_6a50f566a0f877_57913711',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e64e579388e5615e11e939b12134d6ae8679eba6' => 
     array (
       0 => 'app:frontendpagesindexJournal.tpl',
-      1 => 1761524992,
+      1 => 1783690596,
       2 => 'app',
     ),
   ),
@@ -21,11 +21,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/header.tpl' => 1,
     'app:legacy/indexJournal_announcements_3.1.1.tpl' => 1,
     'app:legacy/indexJournal_announcements_3.1.2.tpl' => 1,
-    'app:frontend/objects/issue_toc.tpl' => 1,
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_690490a0537be2_53923741 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a50f566a0f877_57913711 (Smarty_Internal_Template $_smarty_tpl) {
 ?> 
 <?php $_smarty_tpl->_assignInScope('smarty_version', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'substr' ][ 0 ], array( Smarty::SMARTY_VERSION,0,1 )));?>
  
@@ -106,8 +105,7 @@ $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
 				<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'strip_unsafe_html' ][ 0 ], array( $_smarty_tpl->tpl_vars['issue']->value->getIssueIdentification() ));?>
 
 			</p>
-			<?php $_smarty_tpl->_subTemplateRender("app:frontend/objects/issue_toc.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
+		
 			<a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"issue",'op'=>"archive"),$_smarty_tpl ) );?>
 " class="btn btn-info pull-right read-more">
 				<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"journal.viewAllIssues"),$_smarty_tpl ) );?>

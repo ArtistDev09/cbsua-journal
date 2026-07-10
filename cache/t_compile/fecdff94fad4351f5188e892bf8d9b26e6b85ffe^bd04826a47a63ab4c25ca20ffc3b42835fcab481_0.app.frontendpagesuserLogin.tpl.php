@@ -1,42 +1,44 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-19 07:36:40
+/* Smarty version 4.3.1, created on 2026-07-07 05:42:44
   from 'app:frontendpagesuserLogin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691d738860b6e5_27390819',
+  'unifunc' => 'content_6a4c75b4873c84_53536350',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bd04826a47a63ab4c25ca20ffc3b42835fcab481' => 
     array (
       0 => 'app:frontendpagesuserLogin.tpl',
-      1 => 1763537785,
+      1 => 1783089952,
       2 => 'app',
     ),
   ),
   'includes' => 
   array (
     'app:frontend/components/header.tpl' => 1,
+    'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_691d738860b6e5_27390819 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"user.login"), 0, false);
+function content_6a4c75b4873c84_53536350 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"user.login",'isFullWidth'=>true), 0, false);
 ?>
 
 <style>
 /* Full page wrapper */
-html, body {
-    height: 100%;
+html,
+body {
+    min-height: 100%;
     margin: 0;
-    background: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #f4f8f6;
 }
 
 /* Hide OJS headers */
+#headerNavigationContainer,
+.journal_index,
+footer[role="contentinfo"],
 header.pkp_header,
 .pkp_site_name,
 .pkp_navigation_primary_wrapper,
@@ -44,9 +46,41 @@ header.pkp_header,
 .pkp_navbar,
 .pkp_navigation_primary,
 .pkp_structure_head,
-.pkp_structure_page,
 .pkp_site_nav_menu {
     display: none !important;
+}
+
+.pkp_page_login .pkp_structure_page {
+    min-height: 100vh;
+    background: #f4f8f6;
+}
+
+.pkp_page_login .pkp_structure_content {
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    padding: 24px 16px;
+}
+
+.pkp_page_login .pkp_structure_content > .row {
+    min-height: calc(100vh - 48px);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.pkp_page_login .pkp_structure_main {
+    float: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: calc(100vh - 48px);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 /* Container & row centering */
@@ -207,6 +241,10 @@ header.pkp_header,
     padding: 0 !important;
     margin: 0 !important;
 }
+
+.site-footer {
+    display: none !important;
+}
 </style>
 
 
@@ -306,7 +344,8 @@ $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
     </div>
 </form>
 
-
+<?php $_smarty_tpl->_subTemplateRender("app:frontend/components/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('isFullWidth'=>true), 0, false);
+?>
 
 
 

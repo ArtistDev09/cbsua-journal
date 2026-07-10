@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-01 03:54:42
+/* Smarty version 4.3.1, created on 2026-07-10 15:17:49
   from 'app:frontendpagesprivacy.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69058482c7c268_86934533',
+  'unifunc' => 'content_6a50f0fdb11d67_52253601',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e9355d736f1a824701a88bfa3ecd03068d56f99' => 
     array (
       0 => 'app:frontendpagesprivacy.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_69058482c7c268_86934533 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a50f0fdb11d67_52253601 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"manager.setup.privacyStatement"), 0, false);
 ?>
 

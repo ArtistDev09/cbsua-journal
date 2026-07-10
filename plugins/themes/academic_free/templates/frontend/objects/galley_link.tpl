@@ -34,9 +34,15 @@
 {if $parent instanceOf Issue}
 	{assign var="page" value="issue"}
 	{assign var="parentId" value=$parent->getBestIssueId()}
+	{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}
 {else}
 	{assign var="page" value="article"}
-	{assign var="parentId" value=$parent->getBestArticleId()}
+	{assign var="parentId" value=$parent->getBestId()}
+	{if $publication && $publication->getId() !== $parent->getData('currentPublicationId')}
+		{assign var="path" value=$parentId|to_array:'version':$publication->getId():$galley->getBestGalleyId($currentJournal)}
+	{else}
+		{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}
+	{/if}
 {/if}
 
 {* Get user access flag *}
@@ -48,10 +54,13 @@
 	{/if}
 {/if}
 
-{* Don't be frightened. This is just a link *}
-{* <a class="galley-link  btn {if $isSupplementary}btn-default{else}btn-primary{/if} {$type}" role="button" href="{url page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
- *}
-<a class="galley-link  {if $isSupplementary}{else}{/if} {$type}" href="{url page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
+{* Open PDF galleys inline in the browser and keep other files as downloads. *}
+{assign var="galleyOp" value="download"}
+{assign var="linkTarget" value=""}
+{if $type == 'pdf'}
+	{assign var="linkTarget" value="_blank"}
+{/if}
+<a class="galley-link  {if $isSupplementary}{else}{/if} {$type}" href="{url page=$page op=$galleyOp path=$path inline=true}"{if $linkTarget} target="{$linkTarget}" rel="noopener"{/if}>
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}

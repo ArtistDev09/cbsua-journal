@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-06-23 11:28:38
+/* Smarty version 4.3.1, created on 2026-07-09 15:38:30
   from 'app:controllerstabauthorDashboardproduction.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a39fd665d1d44_21965010',
+  'unifunc' => 'content_6a4fa456906991_18567081',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3ac8238c02fa633feddac3246a4bc23ed8e15f0d' => 
     array (
       0 => 'app:controllerstabauthorDashboardproduction.tpl',
-      1 => 1732939448,
+      1 => 1783307640,
       2 => 'app',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:authorDashboard/submissionEmails.tpl' => 1,
   ),
 ),false)) {
-function content_6a39fd665d1d44_21965010 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4fa456906991_18567081 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['submission']->value->getStageId() >= (defined('WORKFLOW_STAGE_ID_PRODUCTION') ? constant('WORKFLOW_STAGE_ID_PRODUCTION') : null)) {?>
 	<?php $_smarty_tpl->_subTemplateRender("app:authorDashboard/submissionEmails.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('submissionEmails'=>$_smarty_tpl->tpl_vars['productionEmails']->value), 0, false);
 ?>

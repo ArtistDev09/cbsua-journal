@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-28 06:42:53
+/* Smarty version 4.3.1, created on 2026-07-09 15:52:41
   from 'app:controllersgridtaskstask.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6929446d1f77d6_30486329',
+  'unifunc' => 'content_6a4fa7a92ea126_89715570',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '642608917fb21577c3f7235b556979f3e7c86b25' => 
     array (
       0 => 'app:controllersgridtaskstask.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6929446d1f77d6_30486329 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4fa7a92ea126_89715570 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="task<?php if (!$_smarty_tpl->tpl_vars['notification']->value->getDateRead()) {?> unread<?php }?>">
 	<span class="message">
 		<?php echo $_smarty_tpl->tpl_vars['message']->value;?>

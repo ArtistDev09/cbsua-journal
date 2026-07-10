@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 10:34:08
+/* Smarty version 4.3.1, created on 2026-07-07 05:13:42
   from 'app:legacynavigationMenu_3.1.2.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690490a0571a64_09556446',
+  'unifunc' => 'content_6a4c6ee675ae99_09679882',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b7640b9614ffc80920414cf5f5529867d099b135' => 
     array (
       0 => 'app:legacynavigationMenu_3.1.2.tpl',
-      1 => 1760931566,
+      1 => 1783307639,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_690490a0571a64_09556446 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c6ee675ae99_09679882 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['navigationMenu']->value) {?>
 	<ul id="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['id']->value ));?>
 " class="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['ulClass']->value ));?>

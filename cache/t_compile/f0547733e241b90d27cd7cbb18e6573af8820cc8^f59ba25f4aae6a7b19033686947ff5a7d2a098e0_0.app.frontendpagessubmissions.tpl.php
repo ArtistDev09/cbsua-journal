@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-01 03:55:00
+/* Smarty version 4.3.1, created on 2026-07-09 15:40:40
   from 'app:frontendpagessubmissions.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69058494e8cf39_32614693',
+  'unifunc' => 'content_6a4fa4d8cde281_06495180',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f59ba25f4aae6a7b19033686947ff5a7d2a098e0' => 
     array (
       0 => 'app:frontendpagessubmissions.tpl',
-      1 => 1760931566,
+      1 => 1783602880,
       2 => 'app',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:common/frontend/footer.tpl' => 1,
   ),
 ),false)) {
-function content_69058494e8cf39_32614693 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4fa4d8cde281_06495180 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"about.submissions"), 0, false);
 ?>
 

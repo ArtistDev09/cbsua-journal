@@ -41,6 +41,33 @@
 		{/if}
 	</header>
 
+	{assign var="articlePdfGalley" value=null}
+	{if $primaryGalleys}
+		{foreach from=$primaryGalleys item=galley}
+			{if $galley->isPdfGalley()}
+				{assign var="articlePdfGalley" value=$galley}
+				{break}
+			{/if}
+		{/foreach}
+	{/if}
+	{if !$articlePdfGalley && $supplementaryGalleys}
+		{foreach from=$supplementaryGalleys item=galley}
+			{if $galley->isPdfGalley()}
+				{assign var="articlePdfGalley" value=$galley}
+				{break}
+			{/if}
+		{/foreach}
+	{/if}
+	{*
+	{if $articlePdfGalley}
+		<div class="article-pdf-action" style="margin: 20px 0 24px 0;">
+			<a class="btn btn-primary btn-lg" href="{url page="article" op="view" path=$article->getBestArticleId($currentJournal)|to_array:$articlePdfGalley->getBestGalleyId($currentJournal)}" style="display:inline-block; padding:10px 16px; background:#d9534f; border-color:#d9534f; color:#fff; text-decoration:none;">
+				<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+				<span> Read PDF</span>
+			</a>
+		</div>
+	{/if} *}
+
 	<div class="row article-details-grid">
 
 
@@ -132,9 +159,9 @@
 								</div>
 								{foreach from=$article->getAuthors() item=author}
 									<div class="author article-author-card">
-										<div class="article-author-avatar" aria-hidden="true">
+										{*<div class="article-author-avatar" aria-hidden="true">
 										
-										</div>
+										</div> *}
 										<div class="article-author-content">
 										<strong class="article-author-name">{$author->getFullName()|escape}</strong>
 										{if $author->getLocalizedAffiliation()}
@@ -162,7 +189,7 @@
 	
 									<span>{translate key="article.abstract"}</span>
 								</div>
-								<div class="article-abstract">
+							<div class="article-abstract" style="text-align: justify;">
 									{$article->getLocalizedAbstract()|strip_unsafe_html|nl2br}
 								</div>
 							</div>

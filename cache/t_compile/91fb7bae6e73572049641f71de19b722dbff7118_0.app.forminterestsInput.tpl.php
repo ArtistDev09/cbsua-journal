@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-05 05:13:04
+/* Smarty version 4.3.1, created on 2026-07-09 15:55:15
   from 'app:forminterestsInput.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690adce0c8ca17_47876624',
+  'unifunc' => 'content_6a4fa8436a1a39_98929287',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91fb7bae6e73572049641f71de19b722dbff7118' => 
     array (
       0 => 'app:forminterestsInput.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_690adce0c8ca17_47876624 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4fa8436a1a39_98929287 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
 	$(document).ready(function(){

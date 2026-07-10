@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:06:51
+/* Smarty version 4.3.1, created on 2026-07-07 05:43:06
   from 'app:submissionsubmissionLocale.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e69ab32bce1_53772812',
+  'unifunc' => 'content_6a4c75ca37cd20_12999930',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e8318a038ee38fab68698f05b18709c9fbedb17' => 
     array (
       0 => 'app:submissionsubmissionLocale.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e69ab32bce1_53772812 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c75ca37cd20_12999930 (Smarty_Internal_Template $_smarty_tpl) {
 if (count($_smarty_tpl->tpl_vars['supportedSubmissionLocaleNames']->value) == 1) {?>
 		<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['supportedSubmissionLocaleNames']->value, 'localeName', false, 'locale');

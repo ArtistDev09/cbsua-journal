@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 10:34:34
+/* Smarty version 4.3.1, created on 2026-07-07 05:13:48
   from 'plugins-2-plugins-blocks-information-blocks-information:block.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690490ba4b43a5_52372353',
+  'unifunc' => 'content_6a4c6eec46e054_37398413',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c2996f5cbebf794abacd30f1bf9af84d7b4b5046' => 
     array (
       0 => 'plugins-2-plugins-blocks-information-blocks-information:block.tpl',
-      1 => 1761183958,
+      1 => 1783307635,
       2 => 'plugins-2-plugins-blocks-information-blocks-information',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_690490ba4b43a5_52372353 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/journal-admin/public_html/lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
+function content_6a4c6eec46e054_37398413 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 if (!empty($_smarty_tpl->tpl_vars['forReaders']->value) || !empty($_smarty_tpl->tpl_vars['forAuthors']->value) || !empty($_smarty_tpl->tpl_vars['forLibrarians']->value)) {?>
 <div style="
     text-align: center;

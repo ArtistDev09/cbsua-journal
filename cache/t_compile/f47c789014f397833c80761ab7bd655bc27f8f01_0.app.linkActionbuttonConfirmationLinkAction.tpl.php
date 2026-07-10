@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:37:07
+/* Smarty version 4.3.1, created on 2026-07-07 05:45:28
   from 'app:linkActionbuttonConfirmationLinkAction.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70c3abd300_92933082',
+  'unifunc' => 'content_6a4c7658b2e550_11260244',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f47c789014f397833c80761ab7bd655bc27f8f01' => 
     array (
       0 => 'app:linkActionbuttonConfirmationLinkAction.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e70c3abd300_92933082 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c7658b2e550_11260244 (Smarty_Internal_Template $_smarty_tpl) {
 if (!$_smarty_tpl->tpl_vars['titleIcon']->value) {
 $_smarty_tpl->_assignInScope('titleIcon', "modal_confirm");
 }

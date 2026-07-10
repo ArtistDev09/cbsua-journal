@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-01 03:56:29
+/* Smarty version 4.3.1, created on 2026-07-10 15:20:34
   from 'app:frontendcomponentsheader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690584eda221e8_39142856',
+  'unifunc' => 'content_6a50f1a286d4a3_80995413',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10ae5578a0959129b8d4ceeb9f99c1bb2a9cbd65' => 
     array (
       0 => 'app:frontendcomponentsheader.tpl',
-      1 => 1761905459,
+      1 => 1783400455,
       2 => 'app',
     ),
   ),
@@ -22,14 +22,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/searchForm_simple.tpl' => 1,
   ),
 ),false)) {
-function content_690584eda221e8_39142856 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/journal-admin/public_html/lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.replace.php','function'=>'smarty_modifier_replace',),));
+function content_6a50f1a286d4a3_80995413 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),));
 ?>
 
 <?php $_smarty_tpl->_assignInScope('showingLogo', true);
 if ($_smarty_tpl->tpl_vars['displayPageHeaderTitle']->value && !$_smarty_tpl->tpl_vars['displayPageHeaderLogo']->value && is_string($_smarty_tpl->tpl_vars['displayPageHeaderTitle']->value)) {?>
 	<?php $_smarty_tpl->_assignInScope('showingLogo', false);
 }?>
+
+<?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'default', "homeUrl", null);?>
+	<?php if ($_smarty_tpl->tpl_vars['currentContext']->value && $_smarty_tpl->tpl_vars['multipleContexts']->value) {?>
+		<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('page'=>"index",'router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null)),$_smarty_tpl ) );?>
+
+	<?php } else { ?>
+		<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('context'=>"index",'router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null)),$_smarty_tpl ) );?>
+
+	<?php }
+$_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
 
 <!DOCTYPE html>
 <html lang="<?php echo smarty_modifier_replace($_smarty_tpl->tpl_vars['currentLocale']->value,"_","-");?>
@@ -98,17 +108,6 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 
 					
 <div class="site-header" style="display: flex; align-items: center; flex-wrap: wrap;">
-
-    <?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'default', "homeUrl", null);?>
-        <?php if ($_smarty_tpl->tpl_vars['currentJournal']->value && $_smarty_tpl->tpl_vars['multipleContexts']->value) {?>
-            <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('page'=>"index",'router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null)),$_smarty_tpl ) );?>
-
-        <?php } else { ?>
-            <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('context'=>"index",'router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null)),$_smarty_tpl ) );?>
-
-        <?php }?>
-    <?php $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
-
    
 
     <?php if ($_smarty_tpl->tpl_vars['requestedOp']->value == 'index') {?>
@@ -121,7 +120,7 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
     <!--
         <a href="<?php echo $_smarty_tpl->tpl_vars['homeUrl']->value;?>
 " class="navbar-brand journal_full_title">
-            Central Bicol State University of Agriculture Journals
+            Central Bicol State University of Agriculture
         </a>
         -->
     <?php }?>
@@ -158,9 +157,10 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 					</nav>
 				<?php }?>
 
-			</div><!-- .pkp_head_wrapper -->
+			</div><!-- .navbar-header -->
 
-			</div>
+			</div><!-- .container -->
+			</div><!-- .site_header -->
 		
 
 		</header><!-- .pkp_structure_head -->
@@ -176,13 +176,13 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
         text-align: center;
         margin: 30px auto;
         max-width: 900px;
-        height: 200px;
+        height: 250px;
         padding: 20px;
 
      ">
 
     <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h1 class="journal_title" style="color: white; font-size: 30px">
+    <h1 class="journal_title" style="color: white; font-size: 60px">
         <?php if ($_smarty_tpl->tpl_vars['displayPageHeaderTitle']->value && is_string($_smarty_tpl->tpl_vars['displayPageHeaderTitle']->value)) {?>
             <a href="<?php echo $_smarty_tpl->tpl_vars['homeUrl']->value;?>
 " style="text-decoration: none; color: inherit;">
@@ -223,8 +223,6 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
                 P-ISSN: 2782-8816   <br>   E-ISSN: 2799-1733
             </div>
      	</div>	
-
-</div>
 
 
 

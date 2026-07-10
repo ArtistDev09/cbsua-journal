@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:37:34
+/* Smarty version 4.3.1, created on 2026-07-07 05:56:22
   from 'app:controllersgridfilesfilesGridFilter.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e70dea5f328_02222325',
+  'unifunc' => 'content_6a4c78e6dafbd1_89878673',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2152427d2a578193aec6f0a6aa9634cd6206f3dd' => 
     array (
       0 => 'app:controllersgridfilesfilesGridFilter.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e70dea5f328_02222325 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c78e6dafbd1_89878673 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_assignInScope('formId', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'uniqid' ][ 0 ], array( call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'concat' ][ 0 ], array( "submissionFilesListFilter-",$_smarty_tpl->tpl_vars['filterData']->value['gridId'],"-" )) )));
 echo '<script'; ?>
  type="text/javascript">

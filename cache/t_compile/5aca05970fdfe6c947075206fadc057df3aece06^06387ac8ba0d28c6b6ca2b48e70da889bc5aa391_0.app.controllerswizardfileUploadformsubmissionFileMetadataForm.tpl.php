@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-03-19 02:01:53
+/* Smarty version 4.3.1, created on 2026-07-07 06:00:31
   from 'app:controllerswizardfileUploadformsubmissionFileMetadataForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69bae8913cc411_74435173',
+  'unifunc' => 'content_6a4c79df29ce37_52424901',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '06387ac8ba0d28c6b6ca2b48e70da889bc5aa391' => 
     array (
       0 => 'app:controllerswizardfileUploadformsubmissionFileMetadataForm.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_69bae8913cc411_74435173 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c79df29ce37_52424901 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_assignInScope('metadataFormId', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'uniqid' ][ 0 ], array( "metadataForm" )));
 echo '<script'; ?>
  type="text/javascript">

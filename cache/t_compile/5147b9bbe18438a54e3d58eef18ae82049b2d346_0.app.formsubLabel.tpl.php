@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-05 05:13:04
+/* Smarty version 4.3.1, created on 2026-07-07 05:43:59
   from 'app:formsubLabel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690adce0c7d8b5_47176137',
+  'unifunc' => 'content_6a4c75ff5f2569_06636523',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5147b9bbe18438a54e3d58eef18ae82049b2d346' => 
     array (
       0 => 'app:formsubLabel.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_690adce0c7d8b5_47176137 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c75ff5f2569_06636523 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['FBV_uniqId']->value) {?>
 	<?php if ($_smarty_tpl->tpl_vars['FBV_multilingual']->value) {?>
 		<?php $_smarty_tpl->_assignInScope('forElement', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'concat' ][ 0 ], array( $_smarty_tpl->tpl_vars['FBV_id']->value,"-",$_smarty_tpl->tpl_vars['formLocale']->value,"-",$_smarty_tpl->tpl_vars['FBV_uniqId']->value )));?>

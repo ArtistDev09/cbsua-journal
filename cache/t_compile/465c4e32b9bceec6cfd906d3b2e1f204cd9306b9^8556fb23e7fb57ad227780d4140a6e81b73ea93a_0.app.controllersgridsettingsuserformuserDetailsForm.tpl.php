@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-05 05:13:04
+/* Smarty version 4.3.1, created on 2026-07-09 15:55:13
   from 'app:controllersgridsettingsuserformuserDetailsForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690adce0c33192_97934574',
+  'unifunc' => 'content_6a4fa8413c7732_67511795',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8556fb23e7fb57ad227780d4140a6e81b73ea93a' => 
     array (
       0 => 'app:controllersgridsettingsuserformuserDetailsForm.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:common/userDetails.tpl' => 1,
   ),
 ),false)) {
-function content_690adce0c33192_97934574 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4fa8413c7732_67511795 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
  type="text/javascript">
 	$(function() {

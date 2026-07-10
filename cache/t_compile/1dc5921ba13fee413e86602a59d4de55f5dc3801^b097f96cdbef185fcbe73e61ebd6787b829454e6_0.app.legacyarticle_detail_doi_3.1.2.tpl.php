@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 10:35:37
+/* Smarty version 4.3.1, created on 2026-07-07 05:21:45
   from 'app:legacyarticle_detail_doi_3.1.2.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690490f94caca6_11549806',
+  'unifunc' => 'content_6a4c70c9713a09_65228633',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b097f96cdbef185fcbe73e61ebd6787b829454e6' => 
     array (
       0 => 'app:legacyarticle_detail_doi_3.1.2.tpl',
-      1 => 1760931566,
+      1 => 1783307639,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_690490f94caca6_11549806 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c70c9713a09_65228633 (Smarty_Internal_Template $_smarty_tpl) {
 ?>				<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['pubIdPlugins']->value, 'pubIdPlugin');
 $_smarty_tpl->tpl_vars['pubIdPlugin']->do_else = true;

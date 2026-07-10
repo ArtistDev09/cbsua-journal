@@ -16,6 +16,11 @@
  *}
 {assign var=smarty_version value=$smarty.version|substr:0:1}
 {assign var=articlePath value=$article->getBestArticleId($currentJournal)}
+{assign var=publication value=$article->getCurrentPublication()}
+{assign var="articleGalleys" value=$article->getGalleys()}
+{if $publication && $publication->getData('galleys')}
+  {assign var="articleGalleys" value=$publication->getData('galleys')}
+{/if}
 {if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
   {assign var="showAuthor" value=true}
 {/if}
@@ -30,15 +35,33 @@
   {/if}
 
   <div class="media-body">
-    <h3 class="media-heading" style="font-family: Arial, Helvetica, sans-serif;">
+    <h3 class="media-heading" style="font-family: Arial, Helvetica, sans-serif; display:flex; align-items:center; flex-wrap:wrap; gap:8px;">
       <a href="{url page="article" op="view" path=$articlePath}">
         {$article->getLocalizedTitle()|strip_unsafe_html}
-        {if $article->getLocalizedSubtitle()}
-          <p>
-            <small>{$article->getLocalizedSubtitle()|escape}</small>
-          </p>
-        {/if}
       </a>
+      {if !$hideGalleys && $articleGalleys}
+        <span class="inline-title-galleys" style="display:inline-flex; align-items:center; margin-left:12px;">
+          {foreach from=$articleGalleys item=galley}
+            {if $primaryGenreIds}
+              {assign var="file" value=$galley->getFile()}
+              {if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
+                {continue}
+              {/if}
+            {/if}
+            {assign var=publication value=$article->getCurrentPublication()}
+            {assign var="hasArticleAccess" value=$hasAccess}
+            {if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
+              {assign var="hasArticleAccess" value=1}
+            {/if}
+            {include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication hasAccess=$hasArticleAccess currentJournal=$currentJournal}
+          {/foreach}
+        </span>
+      {/if}
+      {if $article->getLocalizedSubtitle()}
+        <p>
+          <small>{$article->getLocalizedSubtitle()|escape}</small>
+        </p>
+      {/if}
     </h3>
 
     {if $showAuthor || $article->getPages()}
@@ -62,26 +85,6 @@
 
     {/if}
 
-    {if !$hideGalleys && $article->getGalleys()}
-      <div class="btn-group" role="group">
-        {foreach from=$article->getGalleys() item=galley}
-          {if $primaryGenreIds}
-            {assign var="file" value=$galley->getFile()}
-            {if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
-              {continue}
-            {/if}
-          {/if}
-          {assign var=publication value=$article->getCurrentPublication()}
-          {assign var="hasArticleAccess" value=$hasAccess}
-          {if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
-            {assign var="hasArticleAccess" value=1}
-          {/if}
-          {include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
-
-
-        {/foreach}
-      </div>
-    {/if}
   </div>
 
   {call_hook name="Templates::Issue::Issue::Article"}

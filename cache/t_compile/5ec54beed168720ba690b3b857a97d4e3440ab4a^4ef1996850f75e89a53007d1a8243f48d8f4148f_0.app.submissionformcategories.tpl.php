@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-11-20 01:06:51
+/* Smarty version 4.3.1, created on 2026-07-07 05:43:06
   from 'app:submissionformcategories.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_691e69ab3347c6_21797630',
+  'unifunc' => 'content_6a4c75ca479162_78361140',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ef1996850f75e89a53007d1a8243f48d8f4148f' => 
     array (
       0 => 'app:submissionformcategories.tpl',
-      1 => 1732939528,
+      1 => 1783307629,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_691e69ab3347c6_21797630 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a4c75ca479162_78361140 (Smarty_Internal_Template $_smarty_tpl) {
 if (is_array($_smarty_tpl->tpl_vars['categoryOptions']->value) && !empty($_smarty_tpl->tpl_vars['categoryOptions']->value)) {?>
 	<?php if ($_smarty_tpl->tpl_vars['readOnly']->value) {?>
 		<?php $_block_plugin12 = isset($_smarty_tpl->smarty->registered_plugins['block']['fbvFormSection'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['fbvFormSection'][0][0] : null;
