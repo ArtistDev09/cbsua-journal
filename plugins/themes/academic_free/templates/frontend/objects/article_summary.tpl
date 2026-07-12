@@ -57,6 +57,13 @@
           {/foreach}
         </span>
       {/if}
+      {assign var="articleViews" value=$article->getViews()}
+      {if $articleViews > 0}
+        <span class="article-summary-stats" style="display:inline-flex; align-items:center; gap:4px; margin-left:8px; font-size:12px; color:#666;">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <span>{$articleViews}</span>
+        </span>
+      {/if}
       {if $article->getLocalizedSubtitle()}
         <p>
           <small>{$article->getLocalizedSubtitle()|escape}</small>

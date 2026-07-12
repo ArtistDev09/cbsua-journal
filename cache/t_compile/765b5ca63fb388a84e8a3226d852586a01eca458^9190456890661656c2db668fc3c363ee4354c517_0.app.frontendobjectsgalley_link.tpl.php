@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-07 08:53:31
+/* Smarty version 4.3.1, created on 2026-07-10 15:43:02
   from 'app:frontendobjectsgalley_link.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a4ca26b631ee1_24929062',
+  'unifunc' => 'content_6a50f6e6e4ab74_80249041',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9190456890661656c2db668fc3c363ee4354c517' => 
     array (
       0 => 'app:frontendobjectsgalley_link.tpl',
-      1 => 1783399442,
+      1 => 1783690872,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a4ca26b631ee1_24929062 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a50f6e6e4ab74_80249041 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['journalOverride']->value) {?>
 	<?php $_smarty_tpl->_assignInScope('currentJournal', $_smarty_tpl->tpl_vars['journalOverride']->value);
 }?>
@@ -80,6 +80,17 @@ if ($_smarty_tpl->tpl_vars['type']->value == 'pdf') {?>
 
 	<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['galley']->value->getGalleyLabel() ));?>
 
+
+	<?php if ($_smarty_tpl->tpl_vars['type']->value == 'pdf') {?>
+		<?php $_smarty_tpl->_assignInScope('galleyViews', $_smarty_tpl->tpl_vars['galley']->value->getViews());?>
+		<?php if ($_smarty_tpl->tpl_vars['galleyViews']->value > 0) {?>
+			<span class="galley-download-count" style="margin-left:6px; font-size:11px; color:#666;">
+				<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+				<span><?php echo $_smarty_tpl->tpl_vars['galleyViews']->value;?>
+</span>
+			</span>
+		<?php }?>
+	<?php }?>
 
 	<?php if ($_smarty_tpl->tpl_vars['restricted']->value && $_smarty_tpl->tpl_vars['purchaseFee']->value && $_smarty_tpl->tpl_vars['purchaseCurrency']->value) {?>
 		<span class="purchase-cost">

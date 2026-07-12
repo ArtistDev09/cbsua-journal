@@ -42,7 +42,7 @@ msgid "default.contextSettings.checklist.bibliographicRequirements"
 msgstr "The text adheres to the stylistic and bibliographic requirements outlined in the Author Guidelines."
 
 msgid "default.contextSettings.privacyStatement"
-msgstr "<p>The names and email addresses entered in this journal site will be used exclusively for the stated purposes of this journal and will not be made available for any other purpose or to any other party.</p>"
+msgstr "<p>The names and email addresses entered in this journal site will be used exclusively for the stated purpovailable for any other purpose or to any other party.</p>"
 
 msgid "default.contextSettings.openAccessPolicy"
 msgstr "This journal provides immediate open access to its content on the principle that making research freely available to the public supports a greater global exchange of knowledge."

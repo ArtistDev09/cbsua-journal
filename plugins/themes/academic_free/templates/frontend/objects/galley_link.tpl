@@ -76,6 +76,16 @@
 
 	{$galley->getGalleyLabel()|escape}
 
+	{if $type == 'pdf'}
+		{assign var="galleyViews" value=$galley->getViews()}
+		{if $galleyViews > 0}
+			<span class="galley-download-count" style="margin-left:6px; font-size:11px; color:#666;">
+				<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+				<span>{$galleyViews}</span>
+			</span>
+		{/if}
+	{/if}
+
 	{if $restricted && $purchaseFee && $purchaseCurrency}
 		<span class="purchase-cost">
 			{translate key="reader.purchasePrice" price=$purchaseFee currency=$purchaseCurrency}

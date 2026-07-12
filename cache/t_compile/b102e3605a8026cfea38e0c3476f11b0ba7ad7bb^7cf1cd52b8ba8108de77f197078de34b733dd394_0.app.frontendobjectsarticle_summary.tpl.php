@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-07 06:06:30
+/* Smarty version 4.3.1, created on 2026-07-10 15:41:19
   from 'app:frontendobjectsarticle_summary.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a4c7b468ec736_60722021',
+  'unifunc' => 'content_6a50f67febf570_59207678',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7cf1cd52b8ba8108de77f197078de34b733dd394' => 
     array (
       0 => 'app:frontendobjectsarticle_summary.tpl',
-      1 => 1783397168,
+      1 => 1783690872,
       2 => 'app',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/objects/galley_link.tpl' => 1,
   ),
 ),false)) {
-function content_6a4c7b468ec736_60722021 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a50f67febf570_59207678 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_assignInScope('smarty_version', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'substr' ][ 0 ], array( Smarty::SMARTY_VERSION,0,1 )));
 $_smarty_tpl->_assignInScope('articlePath', $_smarty_tpl->tpl_vars['article']->value->getBestArticleId($_smarty_tpl->tpl_vars['currentJournal']->value));
 $_smarty_tpl->_assignInScope('publication', $_smarty_tpl->tpl_vars['article']->value->getCurrentPublication());
@@ -75,6 +75,14 @@ $_smarty_tpl->tpl_vars['galley']->do_else = false;
           <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </span>
+      <?php }?>
+      <?php $_smarty_tpl->_assignInScope('articleViews', $_smarty_tpl->tpl_vars['article']->value->getViews());?>
+      <?php if ($_smarty_tpl->tpl_vars['articleViews']->value > 0) {?>
+        <span class="article-summary-stats" style="display:inline-flex; align-items:center; gap:4px; margin-left:8px; font-size:12px; color:#666;">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <span><?php echo $_smarty_tpl->tpl_vars['articleViews']->value;?>
+</span>
         </span>
       <?php }?>
       <?php if ($_smarty_tpl->tpl_vars['article']->value->getLocalizedSubtitle()) {?>
