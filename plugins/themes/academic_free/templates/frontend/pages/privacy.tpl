@@ -1,30 +1,8 @@
-<?php
-/* Smarty version 4.3.1, created on 2026-07-13 07:09:59
-  from 'app:frontendpagesprivacy.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.3.1',
-  'unifunc' => 'content_6a5473278bcd59_97787112',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '4e9355d736f1a824701a88bfa3ecd03068d56f99' => 
-    array (
-      0 => 'app:frontendpagesprivacy.tpl',
-      1 => 1783915697,
-      2 => 'app',
-    ),
-  ),
-  'includes' => 
-  array (
-    'app:frontend/components/header.tpl' => 1,
-    'app:frontend/components/footer.tpl' => 1,
-  ),
-),false)) {
-function content_6a5473278bcd59_97787112 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"about.privacyStatement"), 0, false);
-?>
+{**
+ * templates/frontend/pages/privacy.tpl
+ * Modernized Document-Style Privacy Page
+ *}
+{include file="frontend/components/header.tpl" pageTitle="about.privacyStatement"}
 
 <style>
 /* ── Premium Document-Style Layout ── */
@@ -123,10 +101,10 @@ $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_
 
 <div id="main-content" class="page page_privacy">
 
-        <div class="privacy-hero">
+    {* Hero Header *}
+    <div class="privacy-hero">
         <div class="privacy-hero-content">
-            <h1><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"about.privacyStatement"),$_smarty_tpl ) );?>
-</h1>
+            <h1>{translate key="about.privacyStatement"}</h1>
         </div>
     </div>
 
@@ -188,6 +166,4 @@ $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_
 
 </div><!-- .page -->
 
-<?php $_smarty_tpl->_subTemplateRender("app:frontend/components/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-}
-}
+{include file="frontend/components/footer.tpl"}

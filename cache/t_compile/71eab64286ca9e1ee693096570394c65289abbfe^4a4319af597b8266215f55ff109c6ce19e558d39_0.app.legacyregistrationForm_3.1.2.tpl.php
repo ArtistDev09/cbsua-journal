@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 23:55:44
+/* Smarty version 4.3.1, created on 2026-07-13 07:09:24
   from 'app:legacyregistrationForm_3.1.2.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69054c809d06c2_75002496',
+  'unifunc' => 'content_6a547304a3b799_08887461',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4a4319af597b8266215f55ff109c6ce19e558d39' => 
     array (
       0 => 'app:legacyregistrationForm_3.1.2.tpl',
-      1 => 1760931566,
+      1 => 1783307639,
       2 => 'app',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_69054c809d06c2_75002496 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/journal-admin/public_html/lib/pkp/lib/vendor/smarty/smarty/libs/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
+function content_6a547304a3b799_08887461 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <fieldset class="identity">
 	<legend>

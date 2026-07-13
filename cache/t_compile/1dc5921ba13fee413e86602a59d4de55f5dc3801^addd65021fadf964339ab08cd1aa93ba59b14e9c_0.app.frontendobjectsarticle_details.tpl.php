@@ -1,39 +1,520 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-09 14:24:45
+/* Smarty version 4.3.1, created on 2026-07-13 07:18:44
   from 'app:frontendobjectsarticle_details.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a4f930d8dd351_41459479',
+  'unifunc' => 'content_6a5475346354f0_61370792',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'addd65021fadf964339ab08cd1aa93ba59b14e9c' => 
     array (
       0 => 'app:frontendobjectsarticle_details.tpl',
-      1 => 1783599883,
+      1 => 1783919922,
       2 => 'app',
     ),
   ),
   'includes' => 
   array (
+    'app:frontend/objects/galley_link.tpl' => 2,
     'app:legacy/article_detail_doi_3.1.1.tpl' => 1,
     'app:legacy/article_detail_doi_3.1.2.tpl' => 1,
     'app:legacy/article_detail_pubs_3.1.1.tpl' => 1,
     'app:legacy/article_detail_pubs_3.1.2.tpl' => 1,
   ),
 ),false)) {
-function content_6a4f930d8dd351_41459479 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_assignInScope('smarty_version', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'substr' ][ 0 ], array( Smarty::SMARTY_VERSION,0,1 )));
+function content_6a5475346354f0_61370792 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.regex_replace.php','function'=>'smarty_modifier_regex_replace',),));
+?>
+
+<?php $_smarty_tpl->_assignInScope('smarty_version', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'substr' ][ 0 ], array( Smarty::SMARTY_VERSION,0,1 )));
 if ($_smarty_tpl->tpl_vars['publication']->value) {?>
 	<?php $_smarty_tpl->_assignInScope('articleKeywords', $_smarty_tpl->tpl_vars['publication']->value->getLocalizedData('keywords'));
 } elseif ($_smarty_tpl->tpl_vars['keywords']->value) {?>
 	<?php $_smarty_tpl->_assignInScope('articleKeywords', $_smarty_tpl->tpl_vars['keywords']->value);
 }?>
- 
+
+<style>
+/* ── Article Hero Banner ── */
+.article-hero-banner {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #052e18 0%, #073f22 40%, #0a5c33 100%);
+    margin: -20px -20px 0;
+    padding: 40px 36px 36px;
+    border-radius: 8px 8px 0 0;
+}
+
+.article-hero-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+.article-hero-banner::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(16,184,101,0.1) 0%, transparent 70%);
+    top: -80px;
+    right: -60px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.article-hero-banner .article-section-label {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 5px 14px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: #34d988 !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: auto;
+}
+
+.article-hero-banner .article-section-label .fa {
+    color: rgba(255,255,255,0.5);
+}
+
+.article-hero-banner .article-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 2.2em;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    padding: 0;
+    border: none;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 16px rgba(5, 46, 24, 0.25);
+}
+
+.article-hero-banner .article-subtitle {
+    position: relative;
+    z-index: 2;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── Modernized Breadcrumbs ── */
+.article-page .cmp_breadcrumbs {
+    margin-bottom: 24px;
+}
+
+.article-page .cmp_breadcrumbs .breadcrumb {
+    background: transparent;
+    padding: 12px 0;
+    margin: 0;
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85em;
+}
+
+.article-page .cmp_breadcrumbs .breadcrumb > li + li::before {
+    content: "›";
+    color: #9ca8a0;
+    padding: 0 8px;
+}
+
+.article-page .cmp_breadcrumbs .breadcrumb > li a {
+    color: #607064;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-page .cmp_breadcrumbs .breadcrumb > li a:hover {
+    color: #073f22;
+}
+
+.article-page .cmp_breadcrumbs .breadcrumb > li.active {
+    color: #073f22;
+    font-weight: 600;
+}
+
+/* ── Article Body Container ── */
+.article-body-content {
+    margin: -20px -20px 0;
+    padding: 0 36px 36px;
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
+}
+
+/* ── Sidebar Meta Card Override ── */
+.article-details--enhanced .article-meta-card {
+    max-width: none;
+    margin: 0 0 28px;
+    border-radius: 10px;
+    border: 1px solid #e2ebe6;
+    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.06);
+    overflow: hidden;
+}
+
+.article-details--enhanced .article-meta-heading {
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #073f22, #0a5c33);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88em;
+    letter-spacing: 0.03em;
+}
+
+.article-details--enhanced .article-meta-heading .fa {
+    opacity: 0.7;
+}
+
+.article-details--enhanced .article-meta-item {
+    padding: 12px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9em;
+    transition: background 0.2s ease;
+}
+
+.article-details--enhanced .article-meta-item:hover {
+    background: #f8fbf9;
+}
+
+.article-details--enhanced .article-meta-label {
+    font-size: 0.85em;
+    color: #607064;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.article-details--enhanced .article-meta-value {
+    color: #1f2d24;
+    font-weight: 500;
+}
+
+/* ── Sidebar Cover Image ── */
+.article-details--enhanced .article-sidebar .cover-image {
+    max-width: none;
+    margin: 0 0 28px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #e2ebe6;
+    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.06);
+    background: #ffffff;
+}
+
+.article-details--enhanced .article-sidebar .cover-image img {
+    border-radius: 6px;
+}
+
+/* ── Detail Blocks ── */
+.article-details--enhanced .article-detail-block {
+    border-radius: 10px;
+    border: 1px solid #e2ebe6;
+    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.05);
+    padding: 30px;
+}
+
+.article-details--enhanced .article-block-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 6px 14px;
+    background: #eef7f2;
+    border: 1px solid #cfe8d8;
+    border-radius: 6px;
+    color: #073f22;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    width: auto;
+}
+
+.article-details--enhanced .article-block-label .fa {
+    color: #1f8f4a;
+}
+
+/* ── Authors ── */
+.article-details--enhanced .article-author-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    margin-bottom: 8px;
+    background: #fbfdfc;
+    border: 1px solid #edf1ee;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-details--enhanced .article-author-card:hover {
+    border-color: #cfe8d8;
+    box-shadow: 0 4px 12px rgba(7, 63, 34, 0.06);
+}
+
+.article-details--enhanced .article-block-label + .article-author-card {
+    border-top: 1px solid #edf1ee;
+}
+
+.article-details--enhanced .article-author-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #1f2d24;
+    font-size: 1em;
+}
+
+.article-details--enhanced .article-author-affilitation {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88em;
+    color: #607064;
+    margin-top: 4px;
+}
+
+.article-details--enhanced .orcid a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    padding: 3px 10px;
+    background: #f0f4ff;
+    border: 1px solid #d4deff;
+    border-radius: 4px;
+    color: #31319e;
+    font-size: 0.82em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.article-details--enhanced .orcid a:hover {
+    background: #e4eaff;
+}
+
+/* ── Abstract ── */
+.article-details--enhanced .article-abstract {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    line-height: 1.85;
+    color: #2d3d33;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* ── Keywords ── */
+.article-details--enhanced .article-keywords {
+    border-radius: 10px;
+    border: 1px solid #e2ebe6;
+    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.05);
+}
+
+.article-details--enhanced .article-keyword {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background: #eef7f2;
+    border: 1px solid #cfe8d8;
+    border-radius: 20px;
+    color: #073f22;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.article-details--enhanced .article-keyword:hover {
+    background: #073f22;
+    color: #ffffff;
+    border-color: #073f22;
+    transform: translateY(-1px);
+}
+
+/* ── Panels (How to Cite, Bios, Subject, License) ── */
+.article-details--enhanced .article-more-details .panel {
+    border: 1px solid #e2ebe6;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.05);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.article-details--enhanced .article-more-details .panel-default > .panel-heading {
+    background: linear-gradient(135deg, #f8fbf9, #eef6f1);
+    border-bottom: 1px solid #e2ebe6;
+    color: #073f22;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 16px 20px;
+}
+
+.article-details--enhanced .article-more-details .panel-default > .panel-heading .fa {
+    color: #1f8f4a;
+    margin-right: 8px;
+}
+
+.article-details--enhanced .article-more-details .panel-body {
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92em;
+    line-height: 1.7;
+    color: #34443b;
+}
+
+/* ── Citation dropdown ── */
+.article-details--enhanced .how-to-cite .btn-group {
+    margin: 16px 0 0;
+}
+
+.article-details--enhanced .how-to-cite .btn-default {
+    background: #eef7f2;
+    border: 1px solid #cfe8d8;
+    color: #073f22;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85em;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+
+.article-details--enhanced .how-to-cite .btn-default:hover {
+    background: #073f22;
+    color: #ffffff;
+    border-color: #073f22;
+}
+
+.article-details--enhanced .how-to-cite .dropdown-menu {
+    border: 1px solid #e2ebe6;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(7, 63, 34, 0.12);
+    padding: 6px;
+}
+
+.article-details--enhanced .how-to-cite .dropdown-menu li a {
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 0.9em;
+    color: #34443b;
+    transition: background 0.15s ease;
+}
+
+.article-details--enhanced .how-to-cite .dropdown-menu li a:hover {
+    background: #eef7f2;
+    color: #073f22;
+}
+
+/* ── References ── */
+.article-details--enhanced .article-references {
+    margin: 28px 0 0;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e2ebe6;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.05);
+}
+
+.article-details--enhanced .article-references h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #073f22;
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #eef7f2;
+}
+
+.article-details--enhanced .article-references h2 .fa {
+    color: #1f8f4a;
+}
+
+.article-details--enhanced .article-references-content ol {
+    padding-left: 24px;
+    margin: 0;
+}
+
+.article-details--enhanced .article-references-content ol li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f4f7f5;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9em;
+    line-height: 1.65;
+    color: #3d4d44;
+}
+
+.article-details--enhanced .article-references-content ol li:last-child {
+    border-bottom: none;
+}
+
+/* ── Biography section ── */
+.article-details--enhanced .author-bios .biography {
+    padding: 16px 0;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.article-details--enhanced .author-bios .biography:last-child {
+    border-bottom: none;
+}
+
+.article-details--enhanced .author-bios .biography h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #073f22;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+    .article-hero-banner {
+        margin: -20px -20px 0;
+        padding: 28px 20px 24px;
+    }
+
+    .article-hero-banner .article-title {
+        font-size: 1.6em;
+    }
+
+    .article-body-content {
+        padding: 0 20px 20px;
+    }
+
+    .article-details--enhanced .article-detail-block {
+        padding: 20px;
+    }
+
+    .article-details--enhanced .article-author-card {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .article-details--enhanced .article-references {
+        padding: 20px;
+    }
+}
+</style>
+
 <article class="article-details article-details--enhanced">
-	<header class="">
+
+		<div class="article-hero-banner">
 		<?php if ($_smarty_tpl->tpl_vars['section']->value) {?>
 			<div class="article-section-label">
 				<i class="fa fa-folder-open-o" aria-hidden="true"></i>
@@ -52,7 +533,9 @@ if ($_smarty_tpl->tpl_vars['publication']->value) {?>
 
 			</p>
 		<?php }?>
-	</header>
+	</div>
+
+		<div class="article-body-content">
 
 	<?php $_smarty_tpl->_assignInScope('articlePdfGalley', null);?>
 	<?php if ($_smarty_tpl->tpl_vars['primaryGalleys']->value) {?>
@@ -85,13 +568,10 @@ $_smarty_tpl->tpl_vars['galley']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 	<?php }?>
-	
+
 	<div class="row article-details-grid">
 
-
 		<section class="article-sidebar col-md-4">
-
-		
 
 						<h2 class="sr-only"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.themes.academic_pro.article.sidebar"),$_smarty_tpl ) );?>
 </h2>
@@ -113,15 +593,29 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 				</div>
 			<?php }?>
 
-			
-
-		
-
 			<div class="list-group article-meta-card">
 				<div class="list-group-item article-meta-heading">
 					<i class="fa fa-info-circle" aria-hidden="true"></i>
 					<span>Article Details</span>
 				</div>
+
+								<?php if ($_smarty_tpl->tpl_vars['article']->value->getDateSubmitted()) {?>
+					<div class="list-group-item date-submitted article-meta-item">
+						<span class="article-meta-label"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"submissions.submitted",'default'=>"Submitted"),$_smarty_tpl ) );?>
+</span>
+						<span class="article-meta-value"><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['article']->value->getDateSubmitted() ));?>
+</span>
+					</div>
+				<?php }?>
+
+								<?php if ($_smarty_tpl->tpl_vars['article']->value->getData('dateAccepted')) {?>
+					<div class="list-group-item date-accepted article-meta-item">
+						<span class="article-meta-label"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"submissions.accepted",'default'=>"Accepted"),$_smarty_tpl ) );?>
+</span>
+						<span class="article-meta-value"><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['article']->value->getData('dateAccepted') ));?>
+</span>
+					</div>
+				<?php }?>
 
 								<?php if ($_smarty_tpl->tpl_vars['article']->value->getDatePublished()) {?>
 					<div class="list-group-item date-published article-meta-item">
@@ -140,6 +634,36 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</div>
 				<?php }?>
 
+								<?php if ($_smarty_tpl->tpl_vars['primaryGalleys']->value || $_smarty_tpl->tpl_vars['supplementaryGalleys']->value) {?>
+					<div class="list-group-item article-meta-item" style="border-top: 1px solid #e2ebe6; margin-top: 10px; padding-top: 20px;">
+						<span class="article-meta-label" style="margin-bottom: 12px; display: block;">Full Article</span>
+						<div class="article-galleys-list" style="display: flex; flex-direction: column; gap: 10px;">
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['primaryGalleys']->value, 'galley');
+$_smarty_tpl->tpl_vars['galley']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['galley']->value) {
+$_smarty_tpl->tpl_vars['galley']->do_else = false;
+?>
+								<?php $_smarty_tpl->_subTemplateRender("app:frontend/objects/galley_link.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('parent'=>$_smarty_tpl->tpl_vars['article']->value,'galley'=>$_smarty_tpl->tpl_vars['galley']->value,'purchaseFee'=>$_smarty_tpl->tpl_vars['currentJournal']->value->getSetting('purchaseArticleFee'),'purchaseCurrency'=>$_smarty_tpl->tpl_vars['currentJournal']->value->getSetting('currency')), 0, true);
+?>
+							<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['supplementaryGalleys']->value, 'galley');
+$_smarty_tpl->tpl_vars['galley']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['galley']->value) {
+$_smarty_tpl->tpl_vars['galley']->do_else = false;
+?>
+								<?php $_smarty_tpl->_subTemplateRender("app:frontend/objects/galley_link.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('parent'=>$_smarty_tpl->tpl_vars['article']->value,'galley'=>$_smarty_tpl->tpl_vars['galley']->value,'isSupplementary'=>"1"), 0, true);
+?>
+							<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+						</div>
+					</div>
+				<?php }?>
+
 													<?php if ($_smarty_tpl->tpl_vars['smarty_version']->value == '2') {?> 
 						<?php $_smarty_tpl->_subTemplateRender("app:legacy/article_detail_doi_3.1.1.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -148,9 +672,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 ?>
 					<?php }?>
 							</div>
-
-			
-		
 
 		</section><!-- .article-sidebar -->
 
@@ -188,7 +709,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['author']->value)
 $_smarty_tpl->tpl_vars['author']->do_else = false;
 ?>
 									<div class="author article-author-card">
-																				<div class="article-author-content">
+										<div class="article-author-content">
 										<strong class="article-author-name"><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['author']->value->getFullName() ));?>
 </strong>
 										<?php if ($_smarty_tpl->tpl_vars['author']->value->getLocalizedAffiliation()) {?>
@@ -213,16 +734,15 @@ $_smarty_tpl->tpl_vars['author']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 						<?php }?>
-<br>
+
 												<?php if ($_smarty_tpl->tpl_vars['article']->value->getLocalizedAbstract()) {?>
 							<div class="article-summary article-detail-section" id="summary">
 								<div class="article-block-label">
-	
 									<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"article.abstract"),$_smarty_tpl ) );?>
 </span>
 								</div>
-							<div class="article-abstract" style="text-align: justify;">
-									<?php echo nl2br((string) call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'strip_unsafe_html' ][ 0 ], array( $_smarty_tpl->tpl_vars['article']->value->getLocalizedAbstract() )), (bool) 1);?>
+								<div class="article-abstract" style="text-align: justify;">
+									<?php echo smarty_modifier_regex_replace(preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_vars['article']->value->getLocalizedAbstract() ?: ''),"/[\r\n]+/"," ");?>
 
 								</div>
 							</div>
@@ -252,8 +772,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</div>
 				<?php }?>
 
-				
-
 			</section><!-- .article-main -->
 
 			<section class="article-more-details">
@@ -261,7 +779,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 								<h2 class="sr-only"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.themes.academic_pro.article.details"),$_smarty_tpl ) );?>
 </h2>
 
-			
 												<?php if ($_smarty_tpl->tpl_vars['smarty_version']->value == '2') {?> 
 					<?php $_smarty_tpl->_subTemplateRender("app:legacy/article_detail_pubs_3.1.1.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -270,8 +787,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 ?>
 				<?php }?>
 				
-
-
 								<?php if ($_smarty_tpl->tpl_vars['article']->value->getLocalizedSubject()) {?>
 					<div class="panel panel-default subject">
 						<div class="panel-heading">
@@ -284,9 +799,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 						</div>
 					</div>
 				<?php }?>
-
-
-			
 
 								<?php if ($_smarty_tpl->tpl_vars['copyright']->value || $_smarty_tpl->tpl_vars['licenseUrl']->value) {?>
 					<div class="panel panel-default copyright">
@@ -330,7 +842,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 				<?php if ($_smarty_tpl->tpl_vars['hasBiographies']->value) {?>
 					<div class="panel panel-default author-bios">
 						<div class="panel-heading">
-							
 							<?php if ($_smarty_tpl->tpl_vars['hasBiographies']->value > 1) {?>
 								<i class="fa fa-users"> </i><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"submission.authorBiographies"),$_smarty_tpl ) );?>
 
@@ -339,7 +850,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 							<?php }?>
 						</div>
-						<div class="panel-body" style="font-family: sans-serif">
+						<div class="panel-body">
 							<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['article']->value->getAuthors(), 'author');
 $_smarty_tpl->tpl_vars['author']->do_else = true;
@@ -375,7 +886,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</div>
 				<?php }?>
 
-									<?php if ($_smarty_tpl->tpl_vars['citation']->value) {?>
+								<?php if ($_smarty_tpl->tpl_vars['citation']->value) {?>
 					<div class="panel panel-default how-to-cite">
 						<div class="panel-heading">
 							<i class="fa fa-file-text"> </i>  <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"submission.howToCite"),$_smarty_tpl ) );?>
@@ -421,7 +932,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</div>
 				<?php }?>
 
-
 				<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['call_hook'][0], array( array('name'=>"Templates::Article::Details"),$_smarty_tpl ) );?>
 
 
@@ -456,6 +966,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 			</section><!-- .article-details -->
 		</div><!-- .col-md-8 -->
 	</div><!-- .row -->
+
+	</div><!-- .article-body-content -->
 
 </article>
 <?php }

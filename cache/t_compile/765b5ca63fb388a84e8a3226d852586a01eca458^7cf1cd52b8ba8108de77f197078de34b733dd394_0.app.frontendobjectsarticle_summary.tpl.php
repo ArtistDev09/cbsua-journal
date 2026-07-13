@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-10 15:43:02
+/* Smarty version 4.3.1, created on 2026-07-13 08:03:07
   from 'app:frontendobjectsarticle_summary.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a50f6e6a8a0d8_91681953',
+  'unifunc' => 'content_6a547f9bb68d69_28167025',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7cf1cd52b8ba8108de77f197078de34b733dd394' => 
     array (
       0 => 'app:frontendobjectsarticle_summary.tpl',
-      1 => 1783690872,
+      1 => 1783922483,
       2 => 'app',
     ),
   ),
@@ -21,7 +21,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/objects/galley_link.tpl' => 1,
   ),
 ),false)) {
-function content_6a50f6e6a8a0d8_91681953 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a547f9bb68d69_28167025 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),1=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 $_smarty_tpl->_assignInScope('smarty_version', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'substr' ][ 0 ], array( Smarty::SMARTY_VERSION,0,1 )));
 $_smarty_tpl->_assignInScope('articlePath', $_smarty_tpl->tpl_vars['article']->value->getBestArticleId($_smarty_tpl->tpl_vars['currentJournal']->value));
 $_smarty_tpl->_assignInScope('publication', $_smarty_tpl->tpl_vars['article']->value->getCurrentPublication());
@@ -79,8 +80,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
       <?php $_smarty_tpl->_assignInScope('articleViews', $_smarty_tpl->tpl_vars['article']->value->getViews());?>
       <?php if ($_smarty_tpl->tpl_vars['articleViews']->value > 0) {?>
-        <span class="article-summary-stats" style="display:inline-flex; align-items:center; gap:4px; margin-left:8px; font-size:12px; color:#666;">
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span class="article-summary-stats" style="display:inline-flex; align-items:center; gap:3px; margin-left:8px; padding: 1px 6px; background: #eef7f2; border: 1px solid #cfe8d8; border-radius: 10px; font-size: 0.78em; font-weight: 600; color: #073f22; font-family: 'Inter', sans-serif;">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 0.95em; opacity: 0.85;"></span>
           <span><?php echo $_smarty_tpl->tpl_vars['articleViews']->value;?>
 </span>
         </span>
@@ -93,27 +94,75 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <?php }?>
     </h3>
 
-    <?php if ($_smarty_tpl->tpl_vars['showAuthor']->value || $_smarty_tpl->tpl_vars['article']->value->getPages()) {?>
+    <div class="article-details-summary" style="margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 0.95em; color: #34443b; line-height: 1.6;">
+      <?php if ($_smarty_tpl->tpl_vars['issue']->value) {?>
+        <div class="article-issue" style="font-weight: 600; color: #073f22; margin-bottom: 8px;">
+          <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'strip_unsafe_html' ][ 0 ], array( $_smarty_tpl->tpl_vars['issue']->value->getIssueIdentification() ));?>
+
+        </div>
+      <?php }?>
+
+      <?php if ($_smarty_tpl->tpl_vars['article']->value->getLocalizedAbstract()) {?>
+        <div class="article-abstract" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Abstract:</strong> <?php echo smarty_modifier_truncate(preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_vars['article']->value->getLocalizedAbstract() ?: ''),400,"...");?>
+
+        </div>
+      <?php }?>
 
       <?php if ($_smarty_tpl->tpl_vars['showAuthor']->value) {?>
-        <div class="meta">
-          <?php if ($_smarty_tpl->tpl_vars['showAuthor']->value) {?>
-            <div class="authors">
-              <?php echo $_smarty_tpl->tpl_vars['article']->value->getAuthorString();?>
+        <div class="article-authors" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Authors:</strong> <?php echo $_smarty_tpl->tpl_vars['article']->value->getAuthorString();?>
 
-            </div>
-          <?php }?>
+        </div>
+      <?php }?>
+
+      <?php $_smarty_tpl->_assignInScope('publication', $_smarty_tpl->tpl_vars['article']->value->getCurrentPublication());?>
+      <?php $_smarty_tpl->_assignInScope('articleKeywords', '');?>
+      <?php if ($_smarty_tpl->tpl_vars['publication']->value) {?>
+        <?php $_smarty_tpl->_assignInScope('articleKeywords', $_smarty_tpl->tpl_vars['publication']->value->getLocalizedData('keywords'));?>
+      <?php }?>
+      <?php if (!empty($_smarty_tpl->tpl_vars['articleKeywords']->value)) {?>
+        <div class="article-keywords" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Keywords:</strong> 
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleKeywords']->value, 'keyword', false, NULL, 'keywords', array (
+  'last' => true,
+  'iteration' => true,
+  'total' => true,
+));
+$_smarty_tpl->tpl_vars['keyword']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->value) {
+$_smarty_tpl->tpl_vars['keyword']->do_else = false;
+$_smarty_tpl->tpl_vars['__smarty_foreach_keywords']->value['iteration']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_keywords']->value['last'] = $_smarty_tpl->tpl_vars['__smarty_foreach_keywords']->value['iteration'] === $_smarty_tpl->tpl_vars['__smarty_foreach_keywords']->value['total'];
+?>
+            <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['keyword']->value ));
+if (!(isset($_smarty_tpl->tpl_vars['__smarty_foreach_keywords']->value['last']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_keywords']->value['last'] : null)) {?>, <?php }?>
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </div>
+      <?php }?>
+
+      <?php if ($_smarty_tpl->tpl_vars['article']->value->getDatePublished()) {?>
+        <div class="article-year" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Year Published:</strong> <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['article']->value->getDatePublished(),"%Y");?>
+
+        </div>
+      <?php } elseif ($_smarty_tpl->tpl_vars['issue']->value && $_smarty_tpl->tpl_vars['issue']->value->getYear()) {?>
+        <div class="article-year" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Year Published:</strong> <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['issue']->value->getYear() ));?>
+
         </div>
       <?php }?>
 
             <?php if ($_smarty_tpl->tpl_vars['article']->value->getPages()) {?>
-        <p class="pages">
-          <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['article']->value->getPages() ));?>
+        <div class="article-pages" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Pages:</strong> <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['article']->value->getPages() ));?>
 
-        </p>
+        </div>
       <?php }?>
-
-    <?php }?>
+    </div>
 
   </div>
 

@@ -1,39 +1,35 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 23:55:44
+/* Smarty version 4.3.1, created on 2026-07-13 07:09:23
   from 'app:frontendpagesuserRegister.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69054c8098e111_29746171',
+  'unifunc' => 'content_6a547303c68712_43738324',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd49dc0801a97aaed7a39f9de90403c63b1cc8e43' => 
     array (
       0 => 'app:frontendpagesuserRegister.tpl',
-      1 => 1760931566,
+      1 => 1783086507,
       2 => 'app',
     ),
   ),
   'includes' => 
   array (
     'app:frontend/components/header.tpl' => 1,
-    'app:frontend/components/breadcrumbs.tpl' => 1,
     'app:common/formErrors.tpl' => 1,
     'app:frontend/components/registrationForm.tpl' => 1,
     'app:frontend/components/registrationFormContexts.tpl' => 1,
     'app:common/frontend/footer.tpl' => 1,
   ),
 ),false)) {
-function content_69054c8098e111_29746171 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"user.register"), 0, false);
+function content_6a547303c68712_43738324 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"user.register",'isFullWidth'=>true), 0, false);
 ?>
 
 <div id="main-content" class="page page_register">
-
-	<?php $_smarty_tpl->_subTemplateRender("app:frontend/components/breadcrumbs.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('currentTitleKey'=>"user.register"), 0, false);
-?>
 
 	<form class="pkp_form register" id="register" method="post" action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('op'=>"register"),$_smarty_tpl ) );?>
 ">

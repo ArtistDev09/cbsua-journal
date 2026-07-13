@@ -58,9 +58,61 @@
 {assign var="galleyOp" value="download"}
 {assign var="linkTarget" value=""}
 {if $type == 'pdf'}
+	{assign var="galleyOp" value="view"}
 	{assign var="linkTarget" value="_blank"}
 {/if}
-<a class="galley-link  {if $isSupplementary}{else}{/if} {$type}" href="{url page=$page op=$galleyOp path=$path inline=true}"{if $linkTarget} target="{$linkTarget}" rel="noopener"{/if}>
+<style>
+/* Modern Galley Link Styles */
+.galley-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: #eef7f2;
+    border: 1px solid #cfe8d8;
+    border-radius: 6px;
+    color: #073f22;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.galley-link:hover {
+    background: #073f22;
+    color: #ffffff;
+    border-color: #073f22;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(7, 63, 34, 0.15);
+    transform: translateY(-1px);
+}
+
+.galley-download-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 4px;
+    padding-left: 8px;
+    border-left: 1px solid rgba(7, 63, 34, 0.15);
+    font-size: 0.9em;
+    font-weight: 700;
+    color: inherit;
+    opacity: 0.85;
+}
+
+.galley-link:hover .galley-download-count {
+    border-left-color: rgba(22, 95, 28, 0.3);
+}
+
+.galley-download-count .glyphicon {
+    font-size: 1.1em;
+}
+</style>
+
+<a class="galley-link {if $isSupplementary}{else}{/if} {$type}" href="{url page=$page op=$galleyOp path=$path}"{if $linkTarget} target="{$linkTarget}" rel="noopener"{/if}>
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
@@ -79,7 +131,7 @@
 	{if $type == 'pdf'}
 		{assign var="galleyViews" value=$galley->getViews()}
 		{if $galleyViews > 0}
-			<span class="galley-download-count" style="margin-left:6px; font-size:11px; color:#666;">
+			<span class="galley-download-count">
 				<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
 				<span>{$galleyViews}</span>
 			</span>

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 10:34:34
+/* Smarty version 4.3.1, created on 2026-07-13 08:03:44
   from 'app:frontendcomponentsnavigationMenusdashboardMenuItem.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_690490ba463355_81716785',
+  'unifunc' => 'content_6a547fc0ee1483_59896044',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_690490ba463355_81716785 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a547fc0ee1483_59896044 (Smarty_Internal_Template $_smarty_tpl) {
 echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['navigationMenuItem']->value->getLocalizedTitle() ));?>
 
 <span class="badge">

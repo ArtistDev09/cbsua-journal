@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 10:36:03
+/* Smarty version 4.3.1, created on 2026-07-13 07:14:57
   from 'app:frontendpagessearch.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6904911328b738_83973754',
+  'unifunc' => 'content_6a5474511d2195_15142060',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,8 +24,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:common/frontend/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6904911328b738_83973754 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/home/journal-admin/public_html/lib/pkp/lib/vendor/smarty/smarty/libs/plugins/function.html_select_date.php','function'=>'smarty_function_html_select_date',),));
+function content_6a5474511d2195_15142060 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\function.html_select_date.php','function'=>'smarty_function_html_select_date',),));
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"common.search"), 0, false);
 ?>
 

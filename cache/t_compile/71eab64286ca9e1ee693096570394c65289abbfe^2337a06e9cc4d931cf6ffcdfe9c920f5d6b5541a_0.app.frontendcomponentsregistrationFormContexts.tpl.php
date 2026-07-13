@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2025-10-31 23:55:44
+/* Smarty version 4.3.1, created on 2026-07-13 07:09:24
   from 'app:frontendcomponentsregistrationFormContexts.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_69054c809e0219_29471389',
+  'unifunc' => 'content_6a547304e72671_15391506',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2337a06e9cc4d931cf6ffcdfe9c920f5d6b5541a' => 
     array (
       0 => 'app:frontendcomponentsregistrationFormContexts.tpl',
-      1 => 1760931566,
+      1 => 1783088510,
       2 => 'app',
     ),
   ),
@@ -20,17 +20,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_69054c809e0219_29471389 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a547304e72671_15391506 (Smarty_Internal_Template $_smarty_tpl) {
 if (!$_smarty_tpl->tpl_vars['currentContext']->value) {?>
 
-		<fieldset name="contexts">
+		<fieldset name="contexts" class="registration-contexts">
 		<legend>
 			<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"user.register.contextsPrompt"),$_smarty_tpl ) );?>
 
 		</legend>
 		<div class="fields">
 			<div id="contextOptinGroup" class="context_optin">
-				<ul class="list-group contexts">
+				<ul class="list-group contexts registration-contexts__list">
 					<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['contexts']->value, 'context');
 $_smarty_tpl->tpl_vars['context']->do_else = true;
@@ -38,17 +38,17 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['context']->value
 $_smarty_tpl->tpl_vars['context']->do_else = false;
 ?>
 						<?php $_smarty_tpl->_assignInScope('contextId', $_smarty_tpl->tpl_vars['context']->value->getId());?>
-						<li class="list-group-item context">
-							<h4 class="list-group-item-heading">
+						<li class="list-group-item context registration-contexts__item">
+							<h4 class="list-group-item-heading registration-contexts__title">
 								<?php echo $_smarty_tpl->tpl_vars['context']->value->getLocalizedName();?>
 
 							</h4>
-							<p>
+							<p class="registration-contexts__prompt">
 								<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"user.register.otherContextRoles"),$_smarty_tpl ) );?>
 
 							</p>
 							<div class="form-inline">
-								<div class="form-group context_roles">
+								<div class="form-group context_roles registration-contexts__roles">
 									<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['readerUserGroups']->value[$_smarty_tpl->tpl_vars['contextId']->value], 'userGroup');
 $_smarty_tpl->tpl_vars['userGroup']->do_else = true;
@@ -57,7 +57,7 @@ $_smarty_tpl->tpl_vars['userGroup']->do_else = false;
 ?>
 										<?php if ($_smarty_tpl->tpl_vars['userGroup']->value->getPermitSelfRegistration()) {?>
 											<?php $_smarty_tpl->_assignInScope('userGroupId', $_smarty_tpl->tpl_vars['userGroup']->value->getId());?>
-											<label class="input-group">
+											<label class="input-group registration-contexts__role">
 												<span class="input-group-addon">
 													<input type="checkbox" name="readerGroup[<?php echo $_smarty_tpl->tpl_vars['userGroupId']->value;?>
 ]"<?php if (in_array($_smarty_tpl->tpl_vars['userGroupId']->value,$_smarty_tpl->tpl_vars['userGroupIds']->value)) {?> checked="checked"<?php }?>>
@@ -79,7 +79,7 @@ $_smarty_tpl->tpl_vars['userGroup']->do_else = false;
 ?>
 										<?php if ($_smarty_tpl->tpl_vars['userGroup']->value->getPermitSelfRegistration()) {?>
 											<?php $_smarty_tpl->_assignInScope('userGroupId', $_smarty_tpl->tpl_vars['userGroup']->value->getId());?>
-											<label class="input-group">
+											<label class="input-group registration-contexts__role">
 												<span class="input-group-addon">
 													<input type="checkbox" name="authorGroup[<?php echo $_smarty_tpl->tpl_vars['userGroupId']->value;?>
 ]"<?php if (in_array($_smarty_tpl->tpl_vars['userGroupId']->value,$_smarty_tpl->tpl_vars['userGroupIds']->value)) {?> checked="checked"<?php }?>>
@@ -101,7 +101,7 @@ $_smarty_tpl->tpl_vars['userGroup']->do_else = false;
 ?>
 										<?php if ($_smarty_tpl->tpl_vars['userGroup']->value->getPermitSelfRegistration()) {?>
 											<?php $_smarty_tpl->_assignInScope('userGroupId', $_smarty_tpl->tpl_vars['userGroup']->value->getId());?>
-											<label class="input-group">
+											<label class="input-group registration-contexts__role">
 												<span class="input-group-addon">
 													<input type="checkbox" name="reviewerGroup[<?php echo $_smarty_tpl->tpl_vars['userGroupId']->value;?>
 ]"<?php if (in_array($_smarty_tpl->tpl_vars['userGroupId']->value,$_smarty_tpl->tpl_vars['userGroupIds']->value)) {?> checked="checked"<?php }?>>

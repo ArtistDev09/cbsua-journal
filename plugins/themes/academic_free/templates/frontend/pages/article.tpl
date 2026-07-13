@@ -17,7 +17,7 @@
 {assign var=articleTitle value=$article->getLocalizedTitle()|escape}
 {include file="frontend/components/header.tpl" isFullWidth=true pageTitleTranslated=$articleTitle}
 
-<div class="page page_article">
+<div class="page page_article article-page">
 	{if $section}
 		{include file="frontend/components/breadcrumbs_article.tpl" currentTitle=$section->getLocalizedTitle()}
 	{else}

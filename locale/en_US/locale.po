@@ -1677,7 +1677,7 @@ msgid "about.copyrightNotice"
 msgstr "Copyright Notice"
 
 msgid "about.privacyStatement"
-msgstr "Privacy Statement"
+msgstr "Editorial Policy"
 
 msgid "about.authorFees"
 msgstr "Author Fees"

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-10 15:35:40
+/* Smarty version 4.3.1, created on 2026-07-13 07:08:32
   from 'app:frontendobjectsissue_toc.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a50f52c5c0b54_64396146',
+  'unifunc' => 'content_6a5472d0591305_49150990',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/objects/article_summary.tpl' => 1,
   ),
 ),false)) {
-function content_6a50f52c5c0b54_64396146 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a5472d0591305_49150990 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <div class="issue-toc">

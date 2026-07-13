@@ -59,8 +59,8 @@
       {/if}
       {assign var="articleViews" value=$article->getViews()}
       {if $articleViews > 0}
-        <span class="article-summary-stats" style="display:inline-flex; align-items:center; gap:4px; margin-left:8px; font-size:12px; color:#666;">
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span class="article-summary-stats" style="display:inline-flex; align-items:center; gap:3px; margin-left:8px; padding: 1px 6px; background: #eef7f2; border: 1px solid #cfe8d8; border-radius: 10px; font-size: 0.78em; font-weight: 600; color: #073f22; font-family: 'Inter', sans-serif;">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 0.95em; opacity: 0.85;"></span>
           <span>{$articleViews}</span>
         </span>
       {/if}
@@ -71,26 +71,56 @@
       {/if}
     </h3>
 
-    {if $showAuthor || $article->getPages()}
+    <div class="article-details-summary" style="margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 0.95em; color: #34443b; line-height: 1.6;">
+      {if $issue}
+        <div class="article-issue" style="font-weight: 600; color: #073f22; margin-bottom: 8px;">
+          {$issue->getIssueIdentification()|strip_unsafe_html}
+        </div>
+      {/if}
+
+      {if $article->getLocalizedAbstract()}
+        <div class="article-abstract" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Abstract:</strong> {$article->getLocalizedAbstract()|strip_tags|truncate:400:"..."}
+        </div>
+      {/if}
 
       {if $showAuthor}
-        <div class="meta">
-          {if $showAuthor}
-            <div class="authors">
-              {$article->getAuthorString()}
-            </div>
-          {/if}
+        <div class="article-authors" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Authors:</strong> {$article->getAuthorString()}
+        </div>
+      {/if}
+
+      {assign var=publication value=$article->getCurrentPublication()}
+      {assign var=articleKeywords value=''}
+      {if $publication}
+        {assign var=articleKeywords value=$publication->getLocalizedData('keywords')}
+      {/if}
+      {if !empty($articleKeywords)}
+        <div class="article-keywords" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Keywords:</strong> 
+          {foreach name="keywords" from=$articleKeywords item=keyword}
+            {$keyword|escape}{if !$smarty.foreach.keywords.last}, {/if}
+          {/foreach}
+        </div>
+      {/if}
+
+      {if $article->getDatePublished()}
+        <div class="article-year" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Year Published:</strong> {$article->getDatePublished()|date_format:"%Y"}
+        </div>
+      {elseif $issue && $issue->getYear()}
+        <div class="article-year" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Year Published:</strong> {$issue->getYear()|escape}
         </div>
       {/if}
 
       {* Page numbers for this article *}
       {if $article->getPages()}
-        <p class="pages">
-          {$article->getPages()|escape}
-        </p>
+        <div class="article-pages" style="margin-bottom: 8px;">
+          <strong style="color: #073f22;">Pages:</strong> {$article->getPages()|escape}
+        </div>
       {/if}
-
-    {/if}
+    </div>
 
   </div>
 

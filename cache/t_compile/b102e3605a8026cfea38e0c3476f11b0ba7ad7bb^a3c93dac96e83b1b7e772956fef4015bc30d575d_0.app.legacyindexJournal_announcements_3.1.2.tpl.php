@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-07 05:13:42
+/* Smarty version 4.3.1, created on 2026-07-13 07:08:32
   from 'app:legacyindexJournal_announcements_3.1.2.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a4c6ee6ec0284_08514830',
+  'unifunc' => 'content_6a5472d03bfe86_34187373',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/objects/announcement_summary.tpl' => 1,
   ),
 ),false)) {
-function content_6a4c6ee6ec0284_08514830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a5472d03bfe86_34187373 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),));
 ?>
 	<?php if ($_smarty_tpl->tpl_vars['numAnnouncementsHomepage']->value && smarty_modifier_count($_smarty_tpl->tpl_vars['announcements']->value)) {?>
