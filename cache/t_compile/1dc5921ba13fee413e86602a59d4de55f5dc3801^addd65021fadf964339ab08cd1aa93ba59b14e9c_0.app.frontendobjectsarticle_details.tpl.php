@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-13 07:18:44
+/* Smarty version 4.3.1, created on 2026-07-20 15:56:12
   from 'app:frontendobjectsarticle_details.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a5475346354f0_61370792',
+  'unifunc' => 'content_6a5e28fc5a9857_02817979',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'addd65021fadf964339ab08cd1aa93ba59b14e9c' => 
     array (
       0 => 'app:frontendobjectsarticle_details.tpl',
-      1 => 1783919922,
+      1 => 1784555769,
       2 => 'app',
     ),
   ),
@@ -25,7 +25,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:legacy/article_detail_pubs_3.1.2.tpl' => 1,
   ),
 ),false)) {
-function content_6a5475346354f0_61370792 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a5e28fc5a9857_02817979 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.regex_replace.php','function'=>'smarty_modifier_regex_replace',),));
 ?>
 
@@ -73,25 +73,20 @@ if ($_smarty_tpl->tpl_vars['publication']->value) {?>
 .article-hero-banner .article-section-label {
     position: relative;
     z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-block;
     margin-bottom: 18px;
-    padding: 5px 14px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 6px;
+    padding: 4px 10px;
+    background: rgba(52, 217, 136, 0.12);
+    border: none;
+    border-radius: 4px;
     color: #34d988 !important;
     font-family: 'Inter', sans-serif;
-    font-size: 0.78em;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     width: auto;
-}
-
-.article-hero-banner .article-section-label .fa {
-    color: rgba(255,255,255,0.5);
+    line-height: 1.25;
 }
 
 .article-hero-banner .article-title {
@@ -212,16 +207,24 @@ if ($_smarty_tpl->tpl_vars['publication']->value) {?>
 /* ── Sidebar Cover Image ── */
 .article-details--enhanced .article-sidebar .cover-image {
     max-width: none;
-    margin: 0 0 28px;
-    padding: 8px;
+    margin: 0 0 20px;
+    padding: 6px;
     border-radius: 10px;
     border: 1px solid #e2ebe6;
     box-shadow: 0 4px 16px rgba(7, 63, 34, 0.06);
     background: #ffffff;
+    text-align: center;
 }
 
 .article-details--enhanced .article-sidebar .cover-image img {
     border-radius: 6px;
+    max-width: 100%;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 /* ── Detail Blocks ── */
@@ -252,6 +255,43 @@ if ($_smarty_tpl->tpl_vars['publication']->value) {?>
 
 .article-details--enhanced .article-block-label .fa {
     color: #1f8f4a;
+}
+
+/* Spacing and modern dividers between block sections */
+.article-details--enhanced .article-detail-section {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.article-details--enhanced .article-detail-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Custom Keyword Tag Styling in Detail Card */
+.article-details--enhanced .detail-keyword-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1a7b41;
+    background: #eef7f2;
+    padding: 6px 14px;
+    border-radius: 6px;
+    line-height: 1.25;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.article-details--enhanced .detail-keyword-tag:hover {
+    background: #1a7b41;
+    color: #ffffff;
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 12px rgba(26, 123, 65, 0.15);
 }
 
 /* ── Authors ── */
@@ -322,9 +362,11 @@ if ($_smarty_tpl->tpl_vars['publication']->value) {?>
 
 /* ── Keywords ── */
 .article-details--enhanced .article-keywords {
-    border-radius: 10px;
-    border: 1px solid #e2ebe6;
-    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.05);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
 }
 
 .article-details--enhanced .article-keyword {
@@ -515,12 +557,29 @@ if ($_smarty_tpl->tpl_vars['publication']->value) {?>
 <article class="article-details article-details--enhanced">
 
 		<div class="article-hero-banner">
-		<?php if ($_smarty_tpl->tpl_vars['section']->value) {?>
-			<div class="article-section-label">
-				<i class="fa fa-folder-open-o" aria-hidden="true"></i>
-				<span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"section.section"),$_smarty_tpl ) );?>
- <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['section']->value->getLocalizedTitle() ));?>
-</span>
+		<?php if (!empty($_smarty_tpl->tpl_vars['articleKeywords']->value)) {?>
+			<div class="article-tags-wrapper" style="margin-bottom: 18px; display: flex; flex-wrap: wrap; gap: 8px;">
+				<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleKeywords']->value, 'keyword', false, NULL, 'keywordLoop', array (
+));
+$_smarty_tpl->tpl_vars['keyword']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->value) {
+$_smarty_tpl->tpl_vars['keyword']->do_else = false;
+?>
+					<span style="display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #34d988; background: rgba(52, 217, 136, 0.12); padding: 4px 10px; border-radius: 4px; line-height: 1.25;">
+						<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['keyword']->value ));?>
+
+					</span>
+				<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+			</div>
+		<?php } elseif ($_smarty_tpl->tpl_vars['section']->value) {?>
+			<div class="article-tags-wrapper" style="margin-bottom: 18px; display: flex; flex-wrap: wrap; gap: 8px;">
+				<span style="display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #34d988; background: rgba(52, 217, 136, 0.12); padding: 4px 10px; border-radius: 4px; line-height: 1.25;">
+					<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['section']->value->getLocalizedTitle() ));?>
+
+				</span>
 			</div>
 		<?php }?>
 		<h1 class="page-header article-title">
@@ -571,7 +630,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 	<div class="row article-details-grid">
 
-		<section class="article-sidebar col-md-4">
+		<section class="article-sidebar col-md-3">
 
 						<h2 class="sr-only"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.themes.academic_pro.article.sidebar"),$_smarty_tpl ) );?>
 </h2>
@@ -675,7 +734,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 		</section><!-- .article-sidebar -->
 
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<section class="article-main">
 								<h2 class="sr-only"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"plugins.themes.academic_pro.article.main"),$_smarty_tpl ) );?>
 </h2>
@@ -735,6 +794,29 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 						<?php }?>
 
+												<?php if (!empty($_smarty_tpl->tpl_vars['articleKeywords']->value)) {?>
+							<div class="article-keywords article-detail-section">
+								<div class="article-block-label">
+									<span>Keywords</span>
+								</div>
+								<div class="article-keyword-list" style="display: flex; flex-wrap: wrap; gap: 8px;">
+									<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleKeywords']->value, 'keyword');
+$_smarty_tpl->tpl_vars['keyword']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->value) {
+$_smarty_tpl->tpl_vars['keyword']->do_else = false;
+?>
+										<span class="detail-keyword-tag">
+											<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['keyword']->value ));?>
+
+										</span>
+									<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+								</div>
+							</div>
+						<?php }?>
+
 												<?php if ($_smarty_tpl->tpl_vars['article']->value->getLocalizedAbstract()) {?>
 							<div class="article-summary article-detail-section" id="summary">
 								<div class="article-block-label">
@@ -747,28 +829,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 								</div>
 							</div>
 						<?php }?>
-					</div>
-				<?php }?>
-
-								<?php if (!empty($_smarty_tpl->tpl_vars['articleKeywords']->value)) {?>
-					<div class="article-keywords article-detail-block">
-						<div class="article-block-label">
-							<i class="fa fa-tags" aria-hidden="true"></i>
-							<span>Keywords</span>
-						</div>
-						<div class="article-keyword-list">
-							<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articleKeywords']->value, 'keyword');
-$_smarty_tpl->tpl_vars['keyword']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->value) {
-$_smarty_tpl->tpl_vars['keyword']->do_else = false;
-?>
-								<span class="article-keyword"><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['keyword']->value ));?>
-</span>
-							<?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-						</div>
 					</div>
 				<?php }?>
 

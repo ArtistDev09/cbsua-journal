@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-13 07:09:59
+/* Smarty version 4.3.1, created on 2026-07-20 15:42:23
   from 'app:frontendpagesprivacy.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a5473278bcd59_97787112',
+  'unifunc' => 'content_6a5e25bf485ed9_32386058',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e9355d736f1a824701a88bfa3ecd03068d56f99' => 
     array (
       0 => 'app:frontendpagesprivacy.tpl',
-      1 => 1783915697,
+      1 => 1783932954,
       2 => 'app',
     ),
   ),
@@ -22,17 +22,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6a5473278bcd59_97787112 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a5e25bf485ed9_32386058 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"about.privacyStatement"), 0, false);
 ?>
 
 <style>
 /* ── Premium Document-Style Layout ── */
-/* Hide the sidebar explicitly on this page */
-#sidebar {
+/* Hide the sidebars explicitly on this page */
+#sidebar, #leftSidebar {
     display: none !important;
 }
-/* Ensure main content takes full width when sidebar is hidden */
+/* Ensure main content takes full width when sidebars are hidden */
 .pkp_structure_main {
     width: 100% !important;
     flex: 0 0 100% !important;
@@ -84,7 +84,7 @@ $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_
 }
 
 .privacy-document-wrapper {
-    max-width: 800px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 24px;
 }

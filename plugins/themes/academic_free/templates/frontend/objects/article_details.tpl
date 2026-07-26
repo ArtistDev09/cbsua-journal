@@ -61,25 +61,20 @@
 .article-hero-banner .article-section-label {
     position: relative;
     z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-block;
     margin-bottom: 18px;
-    padding: 5px 14px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 6px;
+    padding: 4px 10px;
+    background: rgba(52, 217, 136, 0.12);
+    border: none;
+    border-radius: 4px;
     color: #34d988 !important;
     font-family: 'Inter', sans-serif;
-    font-size: 0.78em;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     width: auto;
-}
-
-.article-hero-banner .article-section-label .fa {
-    color: rgba(255,255,255,0.5);
+    line-height: 1.25;
 }
 
 .article-hero-banner .article-title {
@@ -200,16 +195,24 @@
 /* ── Sidebar Cover Image ── */
 .article-details--enhanced .article-sidebar .cover-image {
     max-width: none;
-    margin: 0 0 28px;
-    padding: 8px;
+    margin: 0 0 20px;
+    padding: 6px;
     border-radius: 10px;
     border: 1px solid #e2ebe6;
     box-shadow: 0 4px 16px rgba(7, 63, 34, 0.06);
     background: #ffffff;
+    text-align: center;
 }
 
 .article-details--enhanced .article-sidebar .cover-image img {
     border-radius: 6px;
+    max-width: 100%;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 /* ── Detail Blocks ── */
@@ -240,6 +243,43 @@
 
 .article-details--enhanced .article-block-label .fa {
     color: #1f8f4a;
+}
+
+/* Spacing and modern dividers between block sections */
+.article-details--enhanced .article-detail-section {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.article-details--enhanced .article-detail-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Custom Keyword Tag Styling in Detail Card */
+.article-details--enhanced .detail-keyword-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1a7b41;
+    background: #eef7f2;
+    padding: 6px 14px;
+    border-radius: 6px;
+    line-height: 1.25;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.article-details--enhanced .detail-keyword-tag:hover {
+    background: #1a7b41;
+    color: #ffffff;
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 12px rgba(26, 123, 65, 0.15);
 }
 
 /* ── Authors ── */
@@ -310,9 +350,11 @@
 
 /* ── Keywords ── */
 .article-details--enhanced .article-keywords {
-    border-radius: 10px;
-    border: 1px solid #e2ebe6;
-    box-shadow: 0 4px 16px rgba(7, 63, 34, 0.05);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
 }
 
 .article-details--enhanced .article-keyword {
@@ -504,10 +546,19 @@
 
 	{* ── Article Hero Banner ── *}
 	<div class="article-hero-banner">
-		{if $section}
-			<div class="article-section-label">
-				<i class="fa fa-folder-open-o" aria-hidden="true"></i>
-				<span>{translate key="section.section"} {$section->getLocalizedTitle()|escape}</span>
+		{if !empty($articleKeywords)}
+			<div class="article-tags-wrapper" style="margin-bottom: 18px; display: flex; flex-wrap: wrap; gap: 8px;">
+				{foreach from=$articleKeywords item=keyword name=keywordLoop}
+					<span style="display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #34d988; background: rgba(52, 217, 136, 0.12); padding: 4px 10px; border-radius: 4px; line-height: 1.25;">
+						{$keyword|escape}
+					</span>
+				{/foreach}
+			</div>
+		{elseif $section}
+			<div class="article-tags-wrapper" style="margin-bottom: 18px; display: flex; flex-wrap: wrap; gap: 8px;">
+				<span style="display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #34d988; background: rgba(52, 217, 136, 0.12); padding: 4px 10px; border-radius: 4px; line-height: 1.25;">
+					{$section->getLocalizedTitle()|escape}
+				</span>
 			</div>
 		{/if}
 		<h1 class="page-header article-title">
@@ -543,7 +594,7 @@
 
 	<div class="row article-details-grid">
 
-		<section class="article-sidebar col-md-4">
+		<section class="article-sidebar col-md-3">
 
 			{* Screen-reader heading for easier navigation jumps *}
 			<h2 class="sr-only">{translate key="plugins.themes.academic_pro.article.sidebar"}</h2>
@@ -625,7 +676,7 @@
 
 		</section><!-- .article-sidebar -->
 
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<section class="article-main">
 				{* Screen-reader heading for easier navigation jumps *}
 				<h2 class="sr-only">{translate key="plugins.themes.academic_pro.article.main"}</h2>
@@ -673,6 +724,22 @@
 							</div>
 						{/if}
 
+						{* Keywords *}
+						{if !empty($articleKeywords)}
+							<div class="article-keywords article-detail-section">
+								<div class="article-block-label">
+									<span>Keywords</span>
+								</div>
+								<div class="article-keyword-list" style="display: flex; flex-wrap: wrap; gap: 8px;">
+									{foreach from=$articleKeywords item=keyword}
+										<span class="detail-keyword-tag">
+											{$keyword|escape}
+										</span>
+									{/foreach}
+								</div>
+							</div>
+						{/if}
+
 						{* Article abstract *}
 						{if $article->getLocalizedAbstract()}
 							<div class="article-summary article-detail-section" id="summary">
@@ -684,21 +751,6 @@
 								</div>
 							</div>
 						{/if}
-					</div>
-				{/if}
-
-				{* Keywords *}
-				{if !empty($articleKeywords)}
-					<div class="article-keywords article-detail-block">
-						<div class="article-block-label">
-							<i class="fa fa-tags" aria-hidden="true"></i>
-							<span>Keywords</span>
-						</div>
-						<div class="article-keyword-list">
-							{foreach from=$articleKeywords item=keyword}
-								<span class="article-keyword">{$keyword|escape}</span>
-							{/foreach}
-						</div>
 					</div>
 				{/if}
 

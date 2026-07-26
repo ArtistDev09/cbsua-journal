@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-13 07:06:24
+/* Smarty version 4.3.1, created on 2026-07-20 15:49:45
   from 'app:legacynavigationMenu_3.1.2.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a547250c26774_91601257',
+  'unifunc' => 'content_6a5e2779ebb239_98942189',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b7640b9614ffc80920414cf5f5529867d099b135' => 
     array (
       0 => 'app:legacynavigationMenu_3.1.2.tpl',
-      1 => 1783307639,
+      1 => 1784555365,
       2 => 'app',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a547250c26774_91601257 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a5e2779ebb239_98942189 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['navigationMenu']->value) {?>
 	<ul id="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['id']->value ));?>
 " class="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['ulClass']->value ));?>
@@ -38,17 +38,42 @@ $_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->do_else = false;
 			<?php if (!empty($_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->children)) {?>
 				<?php $_smarty_tpl->_assignInScope('hasChildren', true);?>
 			<?php }?>
+			<?php $_smarty_tpl->_assignInScope('itemTitle', $_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->navigationMenuItem->getLocalizedTitle());?>
+			<?php $_smarty_tpl->_assignInScope('isAboutMenu', false);?>
+			<?php if ($_smarty_tpl->tpl_vars['id']->value === 'main-navigation' && ($_smarty_tpl->tpl_vars['itemTitle']->value == 'About' || $_smarty_tpl->tpl_vars['itemTitle']->value == 'About the Journal' || $_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->navigationMenuItem->getType() == 'NMI_TYPE_ABOUT')) {?>
+				<?php $_smarty_tpl->_assignInScope('isAboutMenu', true);?>
+				<?php $_smarty_tpl->_assignInScope('itemTitle', "Browse");?>
+			<?php }?>
 			<li class="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['liClass']->value ));
-if ($_smarty_tpl->tpl_vars['hasChildren']->value) {?> dropdown<?php }?>">
+if ($_smarty_tpl->tpl_vars['hasChildren']->value || $_smarty_tpl->tpl_vars['isAboutMenu']->value) {?> dropdown<?php }?>">
 				<a href="<?php echo $_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->navigationMenuItem->getUrl();?>
-"<?php if ($_smarty_tpl->tpl_vars['hasChildren']->value) {?> class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"<?php }?>>
-					<?php echo $_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->navigationMenuItem->getLocalizedTitle();?>
+"<?php if ($_smarty_tpl->tpl_vars['hasChildren']->value || $_smarty_tpl->tpl_vars['isAboutMenu']->value) {?> class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"<?php }?>>
+					<?php echo $_smarty_tpl->tpl_vars['itemTitle']->value;?>
 
-					<?php if ($_smarty_tpl->tpl_vars['hasChildren']->value) {?>
+					<?php if ($_smarty_tpl->tpl_vars['hasChildren']->value || $_smarty_tpl->tpl_vars['isAboutMenu']->value) {?>
 						<span class="caret"></span>
 					<?php }?>
 				</a>
-				<?php if (!empty($_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->children)) {?>
+				<?php if ($_smarty_tpl->tpl_vars['isAboutMenu']->value) {?>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"issue",'op'=>"archive"),$_smarty_tpl ) );?>
+">Articles</a>
+						</li>
+						<li>
+							<a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"about"),$_smarty_tpl ) );?>
+">Editorial Policy</a>
+						</li>
+						<li>
+							<a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"about",'op'=>"peerReview"),$_smarty_tpl ) );?>
+">Peer Review Policy</a>
+						</li>
+						<li>
+							<a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"about",'op'=>"editorialTeam"),$_smarty_tpl ) );?>
+">Editorial Team</a>
+						</li>
+					</ul>
+				<?php } elseif (!empty($_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->children)) {?>
 					<ul class="dropdown-menu <?php if ($_smarty_tpl->tpl_vars['id']->value === 'navigationUser') {?>dropdown-menu-right<?php }?>">
 						<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['navigationMenuItemAssignment']->value->children, 'childNavigationMenuItemAssignment', false, 'childField');

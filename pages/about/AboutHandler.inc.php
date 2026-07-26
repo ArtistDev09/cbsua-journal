@@ -45,6 +45,17 @@ class AboutHandler extends AboutContextHandler {
 		));
 		$templateMgr->display('frontend/pages/subscriptions.tpl');
 	}
+
+	/**
+	 * Display Peer Review Policy page.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function peerReview($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+		$templateMgr->display('frontend/pages/peerReview.tpl');
+	}
 }
 
 

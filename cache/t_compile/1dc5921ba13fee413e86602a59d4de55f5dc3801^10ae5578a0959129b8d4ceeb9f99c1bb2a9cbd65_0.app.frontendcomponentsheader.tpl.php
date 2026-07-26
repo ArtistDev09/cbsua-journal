@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-13 07:06:24
+/* Smarty version 4.3.1, created on 2026-07-20 15:51:06
   from 'app:frontendcomponentsheader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a5472504b3304_70765214',
+  'unifunc' => 'content_6a5e27ca152467_74348435',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10ae5578a0959129b8d4ceeb9f99c1bb2a9cbd65' => 
     array (
       0 => 'app:frontendcomponentsheader.tpl',
-      1 => 1783915968,
+      1 => 1784555350,
       2 => 'app',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/searchForm_simple.tpl' => 1,
   ),
 ),false)) {
-function content_6a5472504b3304_70765214 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a5e27ca152467_74348435 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),));
 ?>
 
@@ -375,7 +375,7 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 }
 
 /* ── Hero Section ── */
-/* ── Move Sidebar to Left (Desktop) ── */
+/* ── Move Sidebar to Left (Desktop) & Top (Mobile) ── */
 @media (min-width: 768px) {
     .pkp_structure_content.container > .row {
         display: flex;
@@ -384,6 +384,20 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
     .pkp_structure_content.container > .row::before,
     .pkp_structure_content.container > .row::after {
         display: none; /* Remove Bootstrap clearfix for flexbox to work */
+    }
+}
+
+@media (max-width: 767px) {
+    .pkp_structure_content.container > .row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .pkp_structure_content.container > .row::before,
+    .pkp_structure_content.container > .row::after {
+        display: none;
+    }
+    .pkp_structure_sidebar {
+        margin-bottom: 24px;
     }
 }
 
@@ -402,7 +416,7 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, rgba(5,46,24,0.55) 0%, rgba(7,63,34,0.50) 35%, rgba(10,92,51,0.45) 100%);
+    background: linear-gradient(160deg, rgba(5,46,24,0.72) 0%, rgba(7,63,34,0.67) 35%, rgba(10,92,51,0.62) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -656,7 +670,7 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 					<a href="<?php echo $_smarty_tpl->tpl_vars['homeUrl']->value;?>
 " class="modern-topbar__logo-link">
 						<img src="<?php echo $_smarty_tpl->tpl_vars['baseUrl']->value;?>
-/plugins/themes/academic_free/images/top_logo.png"
+/plugins/themes/academic_free/images/logo.png"
 							 alt="Site Logo"
 							 class="modern-topbar__logo-img">
 						<span class="modern-topbar__logo-text">Central Bicol State University of Agriculture</span>
@@ -686,7 +700,7 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 					<?php if (!empty(trim($_smarty_tpl->tpl_vars['primaryMenu']->value)) || !$_smarty_tpl->tpl_vars['noContextsConfigured']->value) {?>
 						<nav id="modernNavMenu" class="modern-navbar__menu" aria-label="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"common.navigation.site"),$_smarty_tpl ) ) ));?>
 ">
-							<?php echo smarty_modifier_replace($_smarty_tpl->tpl_vars['primaryMenu']->value,"Privacy Statement","Editorial Policy");?>
+							<?php echo $_smarty_tpl->tpl_vars['primaryMenu']->value;?>
 
 
 							<?php if (!$_smarty_tpl->tpl_vars['noContextsConfigured']->value) {?>
@@ -704,7 +718,8 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 		</header>
 
 				<section class="modern-hero" style="background-image: url('<?php echo $_smarty_tpl->tpl_vars['baseUrl']->value;?>
-/plugins/themes/academic_free/styles/header/header_blue.jpg');">
+/plugins/themes/academic_free/styles/header/header_new.png');">
+        
 						<div class="modern-hero__bg-pattern"></div>
 			<div class="modern-hero__grid"></div>
 			<div class="modern-hero__shape modern-hero__shape--1"></div>
@@ -749,9 +764,73 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 			</div>
 		</section>
 
-				<div class="pkp_structure_content container main_content">
+				<div class="pkp_structure_content container main_content" style="max-width: 1500px; width: 98%;">
     <div class="row">
-        <main class="pkp_structure_main col-xs-12 <?php if ($_smarty_tpl->tpl_vars['isFullWidth']->value) {?>col-md-12<?php } else { ?>col-sm-8 col-md-8<?php }?>" role="main">
+        <?php if (empty($_smarty_tpl->tpl_vars['isFullWidth']->value)) {?>
+        <aside id="leftSidebar" class="pkp_structure_sidebar col-xs-12 col-sm-3 col-md-2" role="complementary" aria-label="Left Sidebar">
+                        <div class="journal-sidebar-card journal-menu-card">
+                <h2 class="journal-sidebar-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sidebar-title-icon"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    Journal Menu
+                </h2>
+                <ul class="journal-sidebar-list">
+                    <li>
+                        <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"issue",'op'=>"archive"),$_smarty_tpl ) );?>
+" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M21 9H3M21 15H3M12 3v18"/></svg>
+                            <span>Articles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"about"),$_smarty_tpl ) );?>
+" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                            <span>Editorial Policy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"about",'op'=>"peerReview"),$_smarty_tpl ) );?>
+" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            <span>Peer Review Policy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"about",'op'=>"editorialTeam"),$_smarty_tpl ) );?>
+" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <span>Editorial Team</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+                        <div class="journal-sidebar-card journal-vol-card">
+                <h2 class="journal-sidebar-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sidebar-title-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+                    Published Vol. by Year
+                </h2>
+                <ul class="journal-sidebar-list">
+                    <li>
+                        <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"issue",'op'=>"archive"),$_smarty_tpl ) );?>
+" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+                            <span>2025 (Vol 1)</span>
+                        </a>
+                    </li>
+                    <li class="journal-sidebar-archive-link">
+                        <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('router'=>(defined('ROUTE_PAGE') ? constant('ROUTE_PAGE') : null),'page'=>"issue",'op'=>"archive",'class'=>"journal-sidebar-more"),$_smarty_tpl ) );?>
+" class="journal-sidebar-more">
+                            <span>View All Archives</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <?php }?>
+
+        <main class="pkp_structure_main col-xs-12 <?php if ($_smarty_tpl->tpl_vars['isFullWidth']->value) {?>col-md-12<?php } else { ?>col-sm-6 col-md-8<?php }?>" role="main">
 
 <?php echo '<script'; ?>
 >

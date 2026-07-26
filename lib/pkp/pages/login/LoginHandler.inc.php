@@ -73,15 +73,11 @@ class LoginHandler extends Handler {
 	 */
 	function _redirectAfterLogin($request) {
 		$context = $this->getTargetContext($request);
-		// If there's a context, send them to the dashboard after login.
-		if ($context && $request->getUserVar('source') == '' && array_intersect(
-			array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
-			(array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
-		)) {
-			return $request->redirect($context->getPath(), 'dashboard');
+		if ($context) {
+			$request->redirect($context->getPath(), 'index');
+		} else {
+			$request->redirectHome();
 		}
-
-		$request->redirectHome();
 	}
 
 	/**
@@ -454,7 +450,7 @@ class LoginHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	protected function sendHome($request) {
-		if ($request->getContext()) $request->redirect(null, 'submissions');
+		if ($request->getContext()) $request->redirect(null, 'index');
 		else $request->redirect(null, 'user');
 	}
 

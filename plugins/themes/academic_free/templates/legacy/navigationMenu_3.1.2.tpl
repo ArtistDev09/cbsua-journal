@@ -23,14 +23,35 @@
 			{if !empty($navigationMenuItemAssignment->children)}
 				{assign var="hasChildren" value=true}
 			{/if}
-			<li class="{$liClass|escape}{if $hasChildren} dropdown{/if}">
-				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}"{if $hasChildren} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"{/if}>
-					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-					{if $hasChildren}
+			{assign var="itemTitle" value=$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			{assign var="isAboutMenu" value=false}
+			{if $id === 'main-navigation' && ($itemTitle == 'About' || $itemTitle == 'About the Journal' || $navigationMenuItemAssignment->navigationMenuItem->getType() == 'NMI_TYPE_ABOUT')}
+				{assign var="isAboutMenu" value=true}
+				{assign var="itemTitle" value="Browse"}
+			{/if}
+			<li class="{$liClass|escape}{if $hasChildren || $isAboutMenu} dropdown{/if}">
+				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}"{if $hasChildren || $isAboutMenu} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"{/if}>
+					{$itemTitle}
+					{if $hasChildren || $isAboutMenu}
 						<span class="caret"></span>
 					{/if}
 				</a>
-				{if !empty($navigationMenuItemAssignment->children)}
+				{if $isAboutMenu}
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">Articles</a>
+						</li>
+						<li>
+							<a href="{url router=$smarty.const.ROUTE_PAGE page="about"}">Editorial Policy</a>
+						</li>
+						<li>
+							<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="peerReview"}">Peer Review Policy</a>
+						</li>
+						<li>
+							<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialTeam"}">Editorial Team</a>
+						</li>
+					</ul>
+				{elseif !empty($navigationMenuItemAssignment->children)}
 					<ul class="dropdown-menu {if $id === 'navigationUser'}dropdown-menu-right{/if}">
 						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}

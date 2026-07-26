@@ -81,10 +81,28 @@ class WebFeedBlockPlugin extends BlockPlugin {
 	 */
 	public function getContents($templateMgr, $request = null) {
 		$journal = $request->getJournal();
-		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-		if ($issueDao->getCurrent($journal->getId(), true)) {
-			return parent::getContents($templateMgr, $request);
+		if (!$journal) return '';
+
+		// Fetch announcements for the sidebar
+		$announcements = array();
+		try {
+			$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+			if ($announcementDao) {
+				// Use ASSOC_TYPE_JOURNAL (0x0000100 = 256) directly for reliability
+				$result = $announcementDao->getNumAnnouncementsNotExpiredByAssocId(
+					ASSOC_TYPE_JOURNAL,
+					$journal->getId(),
+					5
+				);
+				if ($result) {
+					$announcements = $result->toArray();
+				}
+			}
+		} catch (Exception $e) {
+			$announcements = array();
 		}
-		return '';
+		$templateMgr->assign('webFeedAnnouncements', $announcements);
+
+		return parent::getContents($templateMgr, $request);
 	}
 }

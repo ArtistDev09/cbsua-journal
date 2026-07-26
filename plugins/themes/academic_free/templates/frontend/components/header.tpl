@@ -278,6 +278,10 @@
 }
 
 /* ── Dropdown Menus ── */
+.modern-navbar__menu .nav li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 .modern-navbar__menu .nav li .dropdown-menu {
     background: var(--hdr-primary) !important;
     border: 1px solid rgba(255,255,255,0.1) !important;
@@ -394,7 +398,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, rgba(5,46,24,0.55) 0%, rgba(7,63,34,0.50) 35%, rgba(10,92,51,0.45) 100%);
+    background: linear-gradient(160deg, rgba(5,46,24,0.72) 0%, rgba(7,63,34,0.67) 35%, rgba(10,92,51,0.62) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -643,7 +647,7 @@
 			<div class="modern-topbar">
 				<div class="modern-topbar__inner">
 					<a href="{$homeUrl}" class="modern-topbar__logo-link">
-						<img src="{$baseUrl}/plugins/themes/academic_free/images/top_logo.png"
+						<img src="{$baseUrl}/plugins/themes/academic_free/images/logo.png"
 							 alt="Site Logo"
 							 class="modern-topbar__logo-img">
 						<span class="modern-topbar__logo-text">Central Bicol State University of Agriculture</span>
@@ -670,9 +674,46 @@
 						{load_menu name="primary" id="main-navigation" ulClass="nav navbar-nav"}
 					{/capture}
 
+					{* Journals Dropdown Menu *}
+					{capture assign="journalsDropdown"}
+						{assign var="allJournalsList" value=$siteJournals|default:$journals}
+						{if $allJournalsList && $allJournalsList|@count > 0}
+							<li class="dropdown modern-nav-journals-dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: -2px;"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+									{translate key="context.contexts"|default:"Journals"} <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									{foreach from=$allJournalsList item=journalItem}
+										<li{if $currentContext && $currentContext->getId() == $journalItem->getId()} class="active"{/if}>
+											<a href="{url journal=$journalItem->getPath()}">{$journalItem->getLocalizedName()|default:$journalItem->getPath()|escape}</a>
+										</li>
+									{/foreach}
+								</ul>
+							</li>
+						{/if}
+					{/capture}
+
+					{if !empty(trim($journalsDropdown))}
+						{if !empty(trim($primaryMenu))}
+							{if $primaryMenu|strpos:"announcement" !== false}
+								{assign var="dropdownReplace" value='$1'|cat:$journalsDropdown}
+								{assign var="primaryMenu" value=$primaryMenu|regex_replace:'/(<li[^>]*>(?:(?!<\/li>).)*?announcement(?:(?!<\/li>).)*?<\/li>)/is':$dropdownReplace}
+							{else}
+								{assign var="primaryMenu" value=$primaryMenu|replace:"</ul>":"`$journalsDropdown`</ul>"}
+							{/if}
+						{else}
+							{capture assign="primaryMenu"}
+								<ul id="main-navigation" class="nav navbar-nav">
+									{$journalsDropdown}
+								</ul>
+							{/capture}
+						{/if}
+					{/if}
+
 					{if !empty(trim($primaryMenu)) || !$noContextsConfigured}
 						<nav id="modernNavMenu" class="modern-navbar__menu" aria-label="{translate|escape key="common.navigation.site"}">
-							{$primaryMenu|replace:"Privacy Statement":"Editorial Policy"}
+							{$primaryMenu}
 
 							{if !$noContextsConfigured}
 								<div class="modern-navbar__search">
@@ -688,7 +729,8 @@
 		</header>
 
 		{* ========== HERO SECTION ========== *}
-		<section class="modern-hero" style="background-image: url('{$baseUrl}/plugins/themes/academic_free/styles/header/header_blue.jpg');">
+		<section class="modern-hero" style="background-image: url('{$baseUrl}/plugins/themes/academic_free/styles/header/header_new.png');">
+        
 			{* Background decorations *}
 			<div class="modern-hero__bg-pattern"></div>
 			<div class="modern-hero__grid"></div>
@@ -723,17 +765,87 @@
 					scholarship, and community engagement.
 				</p>
 
-				<div class="modern-hero__issn">
-					<span class="modern-hero__issn-item"><strong>P-ISSN</strong> 2782-8816</span>
-					<span class="modern-hero__issn-item"><strong>E-ISSN</strong> 2799-1733</span>
-				</div>
+				{if $currentContext}
+					{assign var="printIssn" value=$currentContext->getData('printIssn')}
+					{assign var="onlineIssn" value=$currentContext->getData('onlineIssn')}
+					{if $printIssn || $onlineIssn}
+						<div class="modern-hero__issn">
+							{if $printIssn}
+								<span class="modern-hero__issn-item"><strong>P-ISSN</strong> {$printIssn|escape}</span>
+							{/if}
+							{if $onlineIssn}
+								<span class="modern-hero__issn-item"><strong>E-ISSN</strong> {$onlineIssn|escape}</span>
+							{/if}
+						</div>
+					{/if}
+				{/if}
 			</div>
 		</section>
 
 		{* ========== MAIN CONTENT WRAPPER ========== *}
-		<div class="pkp_structure_content container main_content">
+		<div class="pkp_structure_content container main_content" style="max-width: 1500px; width: 98%;">
     <div class="row">
-        <main class="pkp_structure_main col-xs-12 {if $isFullWidth}col-md-12{else}col-sm-8 col-md-8{/if}" role="main">
+        {if empty($isFullWidth)}
+        <aside id="leftSidebar" class="pkp_structure_sidebar col-xs-12 col-sm-3 col-md-2" role="complementary" aria-label="Left Sidebar">
+            {* Custom Journal Menu Block *}
+            <div class="journal-sidebar-card journal-menu-card">
+                <h2 class="journal-sidebar-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sidebar-title-icon"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    Journal Menu
+                </h2>
+                <ul class="journal-sidebar-list">
+                    <li>
+                        <a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M21 9H3M21 15H3M12 3v18"/></svg>
+                            <span>Articles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{url router=$smarty.const.ROUTE_PAGE page="about"}" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                            <span>Editorial Policy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="peerReview"}" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            <span>Peer Review Policy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialTeam"}" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <span>Editorial Team</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {* Published Vol by Year Block *}
+            <div class="journal-sidebar-card journal-vol-card">
+                <h2 class="journal-sidebar-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sidebar-title-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+                    Published Vol. by Year
+                </h2>
+                <ul class="journal-sidebar-list">
+                    <li>
+                        <a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="journal-sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-item-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+                            <span>2025 (Vol 1)</span>
+                        </a>
+                    </li>
+                    <li class="journal-sidebar-archive-link">
+                        <a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" class="journal-sidebar-more"}" class="journal-sidebar-more">
+                            <span>View All Archives</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        {/if}
+
+        <main class="pkp_structure_main col-xs-12 {if $isFullWidth}col-md-12{else}col-sm-6 col-md-8{/if}" role="main">
 
 {* ========== HEADER SCRIPTS ========== *}
 <script>

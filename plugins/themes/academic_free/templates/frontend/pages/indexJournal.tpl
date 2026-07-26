@@ -31,22 +31,118 @@
 
 /* Welcome Banner */
 .journal-welcome-banner {
-    background: linear-gradient(135deg, #f0fdf4 0%, #e2fce9 100%);
-    border: 1px solid #bbf7d0;
-    color: #1a7b41;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #f0fdf4 0%, #e8f9ed 100%);
+    border: 1px solid #c2ffd4;
+    color: #166534;
     border-radius: 12px;
-    padding: 12px 16px;
-    margin: 12px 0 16px;
-    font-size: 1.15em;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(26, 123, 65, 0.08);
+    padding: 14px 20px;
+    margin: 16px 0 24px;
+    font-size: 1.05em;
+    box-shadow: 0 4px 15px rgba(22, 101, 52, 0.06);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    max-height: 200px;
+    overflow: hidden;
 }
 
-.journal-welcome-banner strong {
-    color: #167144ff;
+.journal-welcome-banner.banner-hidden {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+}
+
+.welcome-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    margin-right: 12px;
+}
+
+.welcome-banner-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #dcfce7;
+    color: #16a34a;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.welcome-banner-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.welcome-banner-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.welcome-badge {
+    background: #16a34a;
+    color: #ffffff;
     font-family: 'Playfair Display', serif;
-    font-size: 1.25em;
+    font-size: 0.85em;
     font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+}
+
+.welcome-message {
+    font-family: 'Inter', sans-serif;
+    color: #1b4332;
+    font-weight: 500;
+}
+
+.welcome-banner-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #166534;
+    opacity: 0.6;
+    padding: 6px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.welcome-banner-close:hover {
+    opacity: 1;
+    background: rgba(22, 101, 52, 0.1);
+    color: #14532d;
+    transform: rotate(90deg);
+}
+
+.welcome-banner-close svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 767px) {
+    .journal-welcome-banner {
+        padding: 12px 16px;
+    }
+    .welcome-banner-content {
+        gap: 12px;
+    }
+    .welcome-banner-text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
 }
 
 /* Journal Information Section */
@@ -195,9 +291,61 @@
 <div id="main-content" class="page_index_journal" role="content">
 
 	{* Modern Welcome Banner *}
-	<div class="journal-welcome-banner">
-		<strong>Welcome!</strong> to CBSUA Journals.
+	<div class="journal-welcome-banner" id="journal-welcome-banner" style="display: none;">
+		<div class="welcome-banner-content">
+			<span class="welcome-banner-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z"/>
+				</svg>
+			</span>
+			<div class="welcome-banner-text">
+				<span class="welcome-badge">Welcome</span>
+				<span class="welcome-message">to CBSUA Journals. Explore our open-access scholarly publications.</span>
+			</div>
+		</div>
+		<button type="button" class="welcome-banner-close" id="close-welcome-banner" aria-label="Close welcome banner">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
 	</div>
+
+	{literal}
+	<script>
+		(function() {
+			var banner = document.getElementById("journal-welcome-banner");
+			if (banner) {
+				if (localStorage.getItem("cbsua_welcome_banner_closed") !== "true") {
+					banner.style.display = "flex";
+				}
+				var closeBtn = document.getElementById("close-welcome-banner");
+				if (closeBtn) {
+					closeBtn.addEventListener("click", function() {
+						banner.classList.add("banner-hidden");
+						localStorage.setItem("cbsua_welcome_banner_closed", "true");
+						
+						// Smoothly collapse height and margins
+						banner.style.maxHeight = banner.offsetHeight + 'px';
+						// Force a reflow
+						banner.offsetHeight;
+						
+						banner.style.maxHeight = '0';
+						banner.style.paddingTop = '0';
+						banner.style.paddingBottom = '0';
+						banner.style.marginTop = '0';
+						banner.style.marginBottom = '0';
+						banner.style.borderWidth = '0';
+						
+						setTimeout(function() {
+							banner.remove();
+						}, 400);
+					});
+				}
+			}
+		})();
+	</script>
+	{/literal}
 
 	{call_hook name="Templates::Index::journal"}
 
@@ -223,13 +371,7 @@
 		</section>
 	{/if}
 
-	{* Announcements *}
-	{* make compatible with ojs 3.1.2 *}
-	{if $smarty_version == '2'} 
-		{include file="legacy/indexJournal_announcements_3.1.1.tpl"}
-	{else}
-		{include file="legacy/indexJournal_announcements_3.1.2.tpl"}
-	{/if}
+	
 
 	{* Latest issue *}
 	{if $issue}

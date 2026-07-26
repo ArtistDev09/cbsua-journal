@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-13 07:06:24
+/* Smarty version 4.3.1, created on 2026-07-16 16:29:06
   from 'app:frontendcomponentsnavigationMenu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a547250b52690_56496488',
+  'unifunc' => 'content_6a58eab23697c9_64118608',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:legacy/navigationMenu_3.1.2.tpl' => 1,
   ),
 ),false)) {
-function content_6a547250b52690_56496488 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a58eab23697c9_64118608 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_assignInScope('smarty_version', call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'substr' ][ 0 ], array( Smarty::SMARTY_VERSION,0,1 )));?>
 
 	<?php if ($_smarty_tpl->tpl_vars['smarty_version']->value == '2') {?> 

@@ -262,5 +262,9 @@ class AcademicFreeThemePlugin extends ThemePlugin
         $templateMgr->assign('pluginImageDir', $baseUrl . '/' . $this->getPluginPath() . '/images/');
         $templateMgr->assign('themeTag', '<small class="pull-right" style="margin-top: 20px"> Academic Free Theme <br> by <a href="https://openjournaltheme.com"> openjournaltheme.com </a> </small>');
 
+        // Retrieve all hosted journals for the journals dropdown menu
+        $journalDao = DAORegistry::getDAO('JournalDAO');
+        $siteJournals = $journalDao->getAll(false)->toArray();
+        $templateMgr->assign('siteJournals', $siteJournals);
     }
 }

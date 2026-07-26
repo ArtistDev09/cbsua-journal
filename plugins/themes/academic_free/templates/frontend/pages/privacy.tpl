@@ -6,11 +6,11 @@
 
 <style>
 /* ── Premium Document-Style Layout ── */
-/* Hide the sidebar explicitly on this page */
-#sidebar {
+/* Hide the sidebars explicitly on this page */
+#sidebar, #leftSidebar {
     display: none !important;
 }
-/* Ensure main content takes full width when sidebar is hidden */
+/* Ensure main content takes full width when sidebars are hidden */
 .pkp_structure_main {
     width: 100% !important;
     flex: 0 0 100% !important;
@@ -62,7 +62,7 @@
 }
 
 .privacy-document-wrapper {
-    max-width: 800px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 24px;
 }

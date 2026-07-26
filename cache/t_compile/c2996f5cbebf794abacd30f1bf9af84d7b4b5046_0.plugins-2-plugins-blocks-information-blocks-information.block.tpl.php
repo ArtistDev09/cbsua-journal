@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-13 07:27:18
+/* Smarty version 4.3.1, created on 2026-07-16 16:29:07
   from 'plugins-2-plugins-blocks-information-blocks-information:block.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a54773680ad30_49037820',
+  'unifunc' => 'content_6a58eab3997796_34492060',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c2996f5cbebf794abacd30f1bf9af84d7b4b5046' => 
     array (
       0 => 'plugins-2-plugins-blocks-information-blocks-information:block.tpl',
-      1 => 1783920426,
+      1 => 1783928040,
       2 => 'plugins-2-plugins-blocks-information-blocks-information',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a54773680ad30_49037820 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a58eab3997796_34492060 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 if (!empty($_smarty_tpl->tpl_vars['forReaders']->value) || !empty($_smarty_tpl->tpl_vars['forAuthors']->value) || !empty($_smarty_tpl->tpl_vars['forLibrarians']->value) || $_smarty_tpl->tpl_vars['currentIssue']->value) {?>
 
