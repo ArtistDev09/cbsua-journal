@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-20 15:51:06
+/* Smarty version 4.3.1, created on 2026-08-06 02:48:44
   from 'app:frontendcomponentsheader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a5e27ca152467_74348435',
+  'unifunc' => 'content_6a73d9ec115b26_23814760',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10ae5578a0959129b8d4ceeb9f99c1bb2a9cbd65' => 
     array (
       0 => 'app:frontendcomponentsheader.tpl',
-      1 => 1784555350,
+      1 => 1785070536,
       2 => 'app',
     ),
   ),
@@ -22,8 +22,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/searchForm_simple.tpl' => 1,
   ),
 ),false)) {
-function content_6a5e27ca152467_74348435 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),));
+function content_6a73d9ec115b26_23814760 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),1=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),2=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.regex_replace.php','function'=>'smarty_modifier_regex_replace',),));
 ?>
 
 <?php $_smarty_tpl->_assignInScope('showingLogo', true);
@@ -300,14 +300,20 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 }
 
 /* ── Dropdown Menus ── */
+.modern-navbar__menu .nav li.dropdown:hover .dropdown-menu,
+.modern-navbar__menu .nav li.dropdown.open .dropdown-menu {
+    display: block !important;
+}
+
 .modern-navbar__menu .nav li .dropdown-menu {
     background: var(--hdr-primary) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
     border-radius: 10px !important;
     box-shadow: 0 16px 48px rgba(5, 46, 24, 0.35) !important;
     padding: 8px !important;
     margin-top: 6px !important;
-    min-width: 200px;
+    min-width: 240px;
+    max-width: 380px;
     animation: dropdownSlide 0.25s var(--hdr-transition);
 }
 
@@ -317,14 +323,20 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 }
 
 .modern-navbar__menu .nav li .dropdown-menu > li > a {
-    color: rgba(255,255,255,0.78) !important;
+    color: rgba(255,255,255,0.85) !important;
     border-radius: 6px !important;
-    padding: 9px 14px !important;
+    padding: 10px 14px !important;
     font-size: 0.88em !important;
+    white-space: normal !important;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.45 !important;
+    display: block;
 }
 
-.modern-navbar__menu .nav li .dropdown-menu > li > a:hover {
-    background: rgba(255,255,255,0.1) !important;
+.modern-navbar__menu .nav li .dropdown-menu > li > a:hover,
+.modern-navbar__menu .nav li .dropdown-menu > li.active > a {
+    background: rgba(255,255,255,0.14) !important;
     color: var(--hdr-text-white) !important;
 }
 
@@ -618,6 +630,31 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
         width: 100%;
     }
 
+    /* Mobile Dropdown Styling */
+    .modern-navbar__menu .nav li .dropdown-menu {
+        position: static !important;
+        float: none !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        background: rgba(0, 0, 0, 0.22) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        margin: 6px 0 10px 0 !important;
+        padding: 6px !important;
+        border-radius: 8px !important;
+    }
+
+    .modern-navbar__menu .nav li .dropdown-menu > li > a {
+        padding: 10px 14px !important;
+        font-size: 0.88em !important;
+        white-space: normal !important;
+        word-wrap: break-word;
+        word-break: break-word;
+        display: block;
+        line-height: 1.4 !important;
+    }
+
     .modern-navbar__search {
         width: 100%;
         margin: 8px 0 0;
@@ -697,6 +734,53 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 
 					<?php $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
 
+										<?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'default', "journalsDropdown", null);?>
+						<?php $_smarty_tpl->_assignInScope('allJournalsList', (($tmp = $_smarty_tpl->tpl_vars['siteJournals']->value ?? null)===null||$tmp==='' ? $_smarty_tpl->tpl_vars['journals']->value ?? null : $tmp));?>
+						<?php if ($_smarty_tpl->tpl_vars['allJournalsList']->value && smarty_modifier_count($_smarty_tpl->tpl_vars['allJournalsList']->value) > 0) {?>
+							<li class="dropdown modern-nav-journals-dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: -2px;"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+									<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>(($tmp = "context.contexts" ?? null)===null||$tmp==='' ? "Journals" ?? null : $tmp)),$_smarty_tpl ) );?>
+ <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allJournalsList']->value, 'journalItem');
+$_smarty_tpl->tpl_vars['journalItem']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['journalItem']->value) {
+$_smarty_tpl->tpl_vars['journalItem']->do_else = false;
+?>
+										<li<?php if ($_smarty_tpl->tpl_vars['currentContext']->value && $_smarty_tpl->tpl_vars['currentContext']->value->getId() == $_smarty_tpl->tpl_vars['journalItem']->value->getId()) {?> class="active"<?php }?>>
+											<a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('journal'=>$_smarty_tpl->tpl_vars['journalItem']->value->getPath()),$_smarty_tpl ) );?>
+"><?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( (($tmp = $_smarty_tpl->tpl_vars['journalItem']->value->getLocalizedName() ?? null)===null||$tmp==='' ? $_smarty_tpl->tpl_vars['journalItem']->value->getPath() ?? null : $tmp) ));?>
+</a>
+										</li>
+									<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+								</ul>
+							</li>
+						<?php }?>
+					<?php $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
+
+					<?php if (!empty(trim($_smarty_tpl->tpl_vars['journalsDropdown']->value))) {?>
+						<?php if (!empty(trim($_smarty_tpl->tpl_vars['primaryMenu']->value))) {?>
+							<?php if (strpos($_smarty_tpl->tpl_vars['primaryMenu']->value,"announcement") !== false) {?>
+								<?php $_smarty_tpl->_assignInScope('dropdownReplace', ('$1').($_smarty_tpl->tpl_vars['journalsDropdown']->value));?>
+								<?php $_smarty_tpl->_assignInScope('primaryMenu', smarty_modifier_regex_replace($_smarty_tpl->tpl_vars['primaryMenu']->value,'/(<li[^>]*>(?:(?!<\/li>).)*?announcement(?:(?!<\/li>).)*?<\/li>)/is',$_smarty_tpl->tpl_vars['dropdownReplace']->value));?>
+							<?php } else { ?>
+								<?php $_smarty_tpl->_assignInScope('primaryMenu', smarty_modifier_replace($_smarty_tpl->tpl_vars['primaryMenu']->value,"</ul>",((string)$_smarty_tpl->tpl_vars['journalsDropdown']->value)."</ul>"));?>
+							<?php }?>
+						<?php } else { ?>
+							<?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'default', "primaryMenu", null);?>
+								<ul id="main-navigation" class="nav navbar-nav">
+									<?php echo $_smarty_tpl->tpl_vars['journalsDropdown']->value;?>
+
+								</ul>
+							<?php $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
+						<?php }?>
+					<?php }?>
+
 					<?php if (!empty(trim($_smarty_tpl->tpl_vars['primaryMenu']->value)) || !$_smarty_tpl->tpl_vars['noContextsConfigured']->value) {?>
 						<nav id="modernNavMenu" class="modern-navbar__menu" aria-label="<?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['translate'][0], array( array('key'=>"common.navigation.site"),$_smarty_tpl ) ) ));?>
 ">
@@ -757,10 +841,22 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 					scholarship, and community engagement.
 				</p>
 
-				<div class="modern-hero__issn">
-					<span class="modern-hero__issn-item"><strong>P-ISSN</strong> 2782-8816</span>
-					<span class="modern-hero__issn-item"><strong>E-ISSN</strong> 2799-1733</span>
-				</div>
+				<?php if ($_smarty_tpl->tpl_vars['currentContext']->value) {?>
+					<?php $_smarty_tpl->_assignInScope('printIssn', $_smarty_tpl->tpl_vars['currentContext']->value->getData('printIssn'));?>
+					<?php $_smarty_tpl->_assignInScope('onlineIssn', $_smarty_tpl->tpl_vars['currentContext']->value->getData('onlineIssn'));?>
+					<?php if ($_smarty_tpl->tpl_vars['printIssn']->value || $_smarty_tpl->tpl_vars['onlineIssn']->value) {?>
+						<div class="modern-hero__issn">
+							<?php if ($_smarty_tpl->tpl_vars['printIssn']->value) {?>
+								<span class="modern-hero__issn-item"><strong>P-ISSN</strong> <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['printIssn']->value ));?>
+</span>
+							<?php }?>
+							<?php if ($_smarty_tpl->tpl_vars['onlineIssn']->value) {?>
+								<span class="modern-hero__issn-item"><strong>E-ISSN</strong> <?php echo call_user_func_array($_smarty_tpl->registered_plugins[ 'modifier' ][ 'escape' ][ 0 ], array( $_smarty_tpl->tpl_vars['onlineIssn']->value ));?>
+</span>
+							<?php }?>
+						</div>
+					<?php }?>
+				<?php }?>
 			</div>
 		</section>
 

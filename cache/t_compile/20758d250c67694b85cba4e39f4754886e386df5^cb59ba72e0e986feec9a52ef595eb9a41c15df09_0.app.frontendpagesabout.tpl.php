@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-20 15:27:12
+/* Smarty version 4.3.1, created on 2026-08-06 02:49:51
   from 'app:frontendpagesabout.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a5e2230a7ae34_54924929',
+  'unifunc' => 'content_6a73da2f5ff523_42444574',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6a5e2230a7ae34_54924929 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a73da2f5ff523_42444574 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("app:frontend/components/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('pageTitle'=>"Editorial Policy"), 0, false);
 ?>
 

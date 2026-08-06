@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-26 11:10:54
+/* Smarty version 4.3.1, created on 2026-07-27 15:38:15
   from 'app:frontendcomponentsheader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a65cf1eb20948_32692565',
+  'unifunc' => 'content_6a675f47adc4a5_98810754',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10ae5578a0959129b8d4ceeb9f99c1bb2a9cbd65' => 
     array (
       0 => 'app:frontendcomponentsheader.tpl',
-      1 => 1785056988,
+      1 => 1785070536,
       2 => 'app',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:frontend/components/searchForm_simple.tpl' => 1,
   ),
 ),false)) {
-function content_6a65cf1eb20948_32692565 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a675f47adc4a5_98810754 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.replace.php','function'=>'smarty_modifier_replace',),1=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),2=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.regex_replace.php','function'=>'smarty_modifier_regex_replace',),));
 ?>
 
@@ -300,18 +300,20 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 }
 
 /* ── Dropdown Menus ── */
-.modern-navbar__menu .nav li.dropdown:hover .dropdown-menu {
-    display: block;
+.modern-navbar__menu .nav li.dropdown:hover .dropdown-menu,
+.modern-navbar__menu .nav li.dropdown.open .dropdown-menu {
+    display: block !important;
 }
 
 .modern-navbar__menu .nav li .dropdown-menu {
     background: var(--hdr-primary) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
     border-radius: 10px !important;
     box-shadow: 0 16px 48px rgba(5, 46, 24, 0.35) !important;
     padding: 8px !important;
     margin-top: 6px !important;
-    min-width: 200px;
+    min-width: 240px;
+    max-width: 380px;
     animation: dropdownSlide 0.25s var(--hdr-transition);
 }
 
@@ -321,14 +323,20 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
 }
 
 .modern-navbar__menu .nav li .dropdown-menu > li > a {
-    color: rgba(255,255,255,0.78) !important;
+    color: rgba(255,255,255,0.85) !important;
     border-radius: 6px !important;
-    padding: 9px 14px !important;
+    padding: 10px 14px !important;
     font-size: 0.88em !important;
+    white-space: normal !important;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.45 !important;
+    display: block;
 }
 
-.modern-navbar__menu .nav li .dropdown-menu > li > a:hover {
-    background: rgba(255,255,255,0.1) !important;
+.modern-navbar__menu .nav li .dropdown-menu > li > a:hover,
+.modern-navbar__menu .nav li .dropdown-menu > li.active > a {
+    background: rgba(255,255,255,0.14) !important;
     color: var(--hdr-text-white) !important;
 }
 
@@ -620,6 +628,31 @@ if ($_smarty_tpl->tpl_vars['showingLogo']->value) {?> has_site_logo<?php }?>">
         padding: 10px 16px;
         border-radius: 8px;
         width: 100%;
+    }
+
+    /* Mobile Dropdown Styling */
+    .modern-navbar__menu .nav li .dropdown-menu {
+        position: static !important;
+        float: none !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        background: rgba(0, 0, 0, 0.22) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        margin: 6px 0 10px 0 !important;
+        padding: 6px !important;
+        border-radius: 8px !important;
+    }
+
+    .modern-navbar__menu .nav li .dropdown-menu > li > a {
+        padding: 10px 14px !important;
+        font-size: 0.88em !important;
+        white-space: normal !important;
+        word-wrap: break-word;
+        word-break: break-word;
+        display: block;
+        line-height: 1.4 !important;
     }
 
     .modern-navbar__search {

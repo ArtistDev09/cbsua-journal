@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-20 15:56:12
+/* Smarty version 4.3.1, created on 2026-08-06 02:48:45
   from 'app:frontendobjectsarticle_details.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a5e28fc5a9857_02817979',
+  'unifunc' => 'content_6a73d9ed279592_09752318',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -25,7 +25,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'app:legacy/article_detail_pubs_3.1.2.tpl' => 1,
   ),
 ),false)) {
-function content_6a5e28fc5a9857_02817979 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a73d9ed279592_09752318 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.regex_replace.php','function'=>'smarty_modifier_regex_replace',),));
 ?>
 

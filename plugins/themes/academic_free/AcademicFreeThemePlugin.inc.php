@@ -266,5 +266,32 @@ class AcademicFreeThemePlugin extends ThemePlugin
         $journalDao = DAORegistry::getDAO('JournalDAO');
         $siteJournals = $journalDao->getAll(false)->toArray();
         $templateMgr->assign('siteJournals', $siteJournals);
+
+        $request = Application::get()->getRequest();
+        $user = $request->getUser();
+        if ($user && !$templateMgr->getTemplateVars('isAdmin')) {
+            $journal = $request->getJournal();
+            $journalId = $journal ? $journal->getId() : 0;
+            $userId = $user->getId();
+            $isAdmin = false;
+
+            $roleDao = DAORegistry::getDAO('RoleDAO');
+            if ($roleDao->userHasRole(0, $userId, ROLE_ID_SITE_ADMIN) || ($journalId && $roleDao->userHasRole($journalId, $userId, ROLE_ID_MANAGER))) {
+                $isAdmin = true;
+            } else {
+                $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+                $userGroups = $userGroupDao->getByUserId($userId, $journalId);
+                if ($userGroups) {
+                    while ($userGroup = $userGroups->next()) {
+                        if (in_array($userGroup->getRoleId(), [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER])) {
+                            $isAdmin = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            $templateMgr->assign('isAdmin', $isAdmin);
+        }
     }
 }

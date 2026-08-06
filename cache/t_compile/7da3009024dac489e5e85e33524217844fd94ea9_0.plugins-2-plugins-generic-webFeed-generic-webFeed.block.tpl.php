@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2026-07-16 16:29:07
+/* Smarty version 4.3.1, created on 2026-07-27 15:38:20
   from 'plugins-2-plugins-generic-webFeed-generic-webFeed:block.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6a58eab3c7b359_26628227',
+  'unifunc' => 'content_6a675f4c587393_13094345',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a58eab3c7b359_26628227 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a675f4c587393_13094345 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\cbsua-journal-git\\lib\\pkp\\lib\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),));
 ?>
 <div class="wf-announcements-block" style="

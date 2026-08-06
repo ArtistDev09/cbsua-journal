@@ -19,6 +19,8 @@
 switch ($op) {
 	case 'subscriptions':
 	case 'peerReview':
+	case 'editorialTeam':
+	case 'saveEditorialTeam':
 		define('HANDLER_CLASS', 'AboutHandler');
 		import('pages.about.AboutHandler');
 		break;

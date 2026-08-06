@@ -278,18 +278,20 @@
 }
 
 /* ── Dropdown Menus ── */
-.modern-navbar__menu .nav li.dropdown:hover .dropdown-menu {
-    display: block;
+.modern-navbar__menu .nav li.dropdown:hover .dropdown-menu,
+.modern-navbar__menu .nav li.dropdown.open .dropdown-menu {
+    display: block !important;
 }
 
 .modern-navbar__menu .nav li .dropdown-menu {
     background: var(--hdr-primary) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
     border-radius: 10px !important;
     box-shadow: 0 16px 48px rgba(5, 46, 24, 0.35) !important;
     padding: 8px !important;
     margin-top: 6px !important;
-    min-width: 200px;
+    min-width: 240px;
+    max-width: 380px;
     animation: dropdownSlide 0.25s var(--hdr-transition);
 }
 
@@ -299,14 +301,20 @@
 }
 
 .modern-navbar__menu .nav li .dropdown-menu > li > a {
-    color: rgba(255,255,255,0.78) !important;
+    color: rgba(255,255,255,0.85) !important;
     border-radius: 6px !important;
-    padding: 9px 14px !important;
+    padding: 10px 14px !important;
     font-size: 0.88em !important;
+    white-space: normal !important;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.45 !important;
+    display: block;
 }
 
-.modern-navbar__menu .nav li .dropdown-menu > li > a:hover {
-    background: rgba(255,255,255,0.1) !important;
+.modern-navbar__menu .nav li .dropdown-menu > li > a:hover,
+.modern-navbar__menu .nav li .dropdown-menu > li.active > a {
+    background: rgba(255,255,255,0.14) !important;
     color: var(--hdr-text-white) !important;
 }
 
@@ -598,6 +606,31 @@
         padding: 10px 16px;
         border-radius: 8px;
         width: 100%;
+    }
+
+    /* Mobile Dropdown Styling */
+    .modern-navbar__menu .nav li .dropdown-menu {
+        position: static !important;
+        float: none !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        background: rgba(0, 0, 0, 0.22) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        margin: 6px 0 10px 0 !important;
+        padding: 6px !important;
+        border-radius: 8px !important;
+    }
+
+    .modern-navbar__menu .nav li .dropdown-menu > li > a {
+        padding: 10px 14px !important;
+        font-size: 0.88em !important;
+        white-space: normal !important;
+        word-wrap: break-word;
+        word-break: break-word;
+        display: block;
+        line-height: 1.4 !important;
     }
 
     .modern-navbar__search {
